@@ -32,7 +32,7 @@ class RegistrationTest extends TestEnvironment {
     @Description("Perform Registration for new user and login with")
     @Story("A newly registered user perform successful login")
     @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("New user registration")
+    @DisplayName("New user registration with login")
     void performRegistrationTest2() {
         registrationAndLoginPage.acceptTermsNConditions();
         String username = "phil";

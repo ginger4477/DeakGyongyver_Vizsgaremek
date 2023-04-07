@@ -21,7 +21,6 @@ public class TestEnvironment {
     protected LandingPage landingPage;
 
 
-
     @BeforeAll
     static void beforeAll() {
         WebDriverManager.chromedriver().setup();
@@ -33,7 +32,6 @@ public class TestEnvironment {
         driver = WebDriverFactory.getWebDriver();
         registrationAndLoginPage = new RegistrationAndLoginPage(driver);
         landingPage = new LandingPage(driver);
-
 
         registrationAndLoginPage.navigateTo();
     }

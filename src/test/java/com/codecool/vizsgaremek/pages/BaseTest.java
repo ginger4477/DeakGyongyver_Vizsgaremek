@@ -14,7 +14,7 @@ public class BaseTest extends TestEnvironment {
 
     @Test
     @Description("Arrive at the correct URL")
-    @Story("The use is navigate to the correct URL")
+    @Story("The user is navigate to the correct URL")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Arrive correct URL")
     void arriveCorrectUrl() {

@@ -12,7 +12,7 @@ public class LoginAndLogoutTest extends TestEnvironment {
 
     @Test
     @Description("Perform Login with already existed user")
-    @Story("Login")
+    @Story("Already registered user perform successful login")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Existed user login")
     void performLoginTest() {
@@ -28,7 +28,7 @@ public class LoginAndLogoutTest extends TestEnvironment {
 
     @Test
     @Description("Perform login with empty password input field")
-    @Story("Login")
+    @Story("Already registered user can not login without password")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Login without password")
     void performLoginWithoutGivenPassword() {
@@ -44,7 +44,7 @@ public class LoginAndLogoutTest extends TestEnvironment {
 
     @Test
     @Description("Perform login with misspelled username")
-    @Story("Login")
+    @Story("Already registered user can not login with misspelled username")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Login with misspelled username")
     void performLoginWithMisspelledUsername() {
@@ -61,7 +61,7 @@ public class LoginAndLogoutTest extends TestEnvironment {
 
     @Test
     @Description("Perform login with wrong password")
-    @Story("Login")
+    @Story("Already registered user can not login with wrong password")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Login with wrong password")
     void performLoginWithWrongPassword() {
@@ -76,10 +76,9 @@ public class LoginAndLogoutTest extends TestEnvironment {
 
 
 
-
     @Test
     @Description("Perform successful logout")
-    @Story("Logout")
+    @Story("A user perform successful logout")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Perform logout")
     void performLogout() {
