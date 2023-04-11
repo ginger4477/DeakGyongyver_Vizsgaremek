@@ -20,6 +20,23 @@ public class PortfolioPage extends Page{
     }
 
 
+    // Going over multiple page list and collect the projects' name
+    public String[] goingOverMultiplePageListAndCollectProjectNames() {
+        return goingOverMultiplePageListAndCollectData(PROJECT_NAMES, BUTTON_NEXT_PAGE_ACTIVE);
+    }
+
+
+    // Click on read-more button
+    public  void clickOnReadMoreButton() {
+        findElementOnPage(READ_MORE_KIO_TAPE_BRAND).click();
+    }
+
+
+    // get and verify KioTape Brand Content
+    public String getKioTapeBrandContent() {
+        return findElementOnPage(CONTENT_PORTFOLIO_KIO_TAPE_BRAND).getText();
+    }
+
 
 
 }

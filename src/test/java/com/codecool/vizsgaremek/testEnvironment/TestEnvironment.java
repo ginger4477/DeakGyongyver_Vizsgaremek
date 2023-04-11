@@ -12,7 +12,10 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
 
+import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class TestEnvironment {
 
@@ -31,7 +34,6 @@ public class TestEnvironment {
     protected static final String TEST_PASSWORD = "hahópihe";
     protected static final String TEST_EMAIL = "hópihe@testmail.com";
     protected static final String TEST_DESCRIPTION = "Once upon a time, there was a little 'hópihe'";
-
 
 
     @BeforeAll
@@ -61,8 +63,22 @@ public class TestEnvironment {
     }
 
 
+    // make screenshot
     protected void makeScreenshot(String title){
         Allure.addAttachment(title, new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
+    }
+
+
+
+    // Write text to a File
+    protected void writeTextToFile(String content, String fileName) {
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
+            writer.write(content);
+            writer.close();
+        } catch (IOException e) {
+            System.err.println("Error writing text to file: " + e.getMessage());
+        }
     }
 
 

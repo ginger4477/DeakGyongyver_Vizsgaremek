@@ -12,9 +12,28 @@ public class BlogPage extends Page {
     private static final By READ_MORE_DESIGN_INSPIRATION = By.xpath("//*[text()='Design Inspiration: The Best Projects From December']");
     private static final By CONTENT_BLOG_DESIGN_INSPIRATION = By.xpath("//*[@class='site-blog-details']");
 
+
     // Constructor
     public BlogPage(WebDriver driver) {
         super(Pages.BLOG_PAGE.getUrl(), driver);
+    }
+
+
+    // Going over multiple page list and collect the blog titles
+    public String[] goingOverMultiplePageListAndCollectBlogTitles() {
+        return goingOverMultiplePageListAndCollectData(BLOG_TITLES, BUTTON_NEXT_PAGE_ACTIVE);
+    }
+
+
+    // Click on read-more button
+    public  void clickOnReadMoreButton() {
+        findElementOnPage(READ_MORE_DESIGN_INSPIRATION).click();
+    }
+
+
+    // get and verify Design Inspiration Blog Content
+    public String getDesignInspirationContent() {
+        return findElementOnPage(CONTENT_BLOG_DESIGN_INSPIRATION).getText();
     }
 
 

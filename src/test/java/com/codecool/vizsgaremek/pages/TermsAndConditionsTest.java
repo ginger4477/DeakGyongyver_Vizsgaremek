@@ -22,7 +22,6 @@ public class TermsAndConditionsTest extends TestEnvironment {
     }
 
 
-
     @Test
     @Description("Accept Terms and Conditions")
     @Story("Popup window of Terms and Conditions")

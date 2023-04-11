@@ -13,13 +13,10 @@ public class ContactPage extends Page{
     private static final By INPUT_LAST_NAME = By.id("last-name");
     private static final By INPUT_EMAIL = By.id("email");
     private static final By INPUT_ABOUT_PROJECT = By.id("aboutProject");
-
     // - Select field
     private static final By SELECT_PROJECT_TYPE = By.id("projectType");
-
     // - Button
     private static final By BUTTON_SEND_MESSAGE = By.id("contact-form-button");
-
     // - Text verify
     private static final By TEXT_VERIFY_MESSAGE_SENT = By.id("contact-form-status");
 
@@ -30,6 +27,21 @@ public class ContactPage extends Page{
     }
 
 
+    // Perform fill the contact form and send message
+    public void sendMessage(String firstName, String lastName, String email, String projectType, String aboutProject) {
+        findElementOnPage(INPUT_FIRST_NAME).sendKeys(firstName);
+        findElementOnPage(INPUT_LAST_NAME).sendKeys(lastName);
+        findElementOnPage(INPUT_EMAIL).sendKeys(email);
+        new Select(findElementOnPage(SELECT_PROJECT_TYPE)).selectByVisibleText(projectType);
+        findElementOnPage(INPUT_ABOUT_PROJECT).sendKeys(aboutProject);
+        findElementOnPage(BUTTON_SEND_MESSAGE).click();
+    }
+
+
+    // Verify success message sent
+    public String successMessage() {
+        return findElementOnPage(TEXT_VERIFY_MESSAGE_SENT).getText();
+    }
 
 
 }

@@ -11,12 +11,10 @@ public class ProfilePage extends Page{
     private static final By INPUT_NAME = By.id("name");
     private static final By INPUT_BIO = By.id("bio");
     private static final By INPUT_PHONE_NUMBER = By.id("phone-number");
-
     // - Buttons
     private static final By BUTTON_SAVE_PROFILE = By.xpath("//*[@onclick='editUser()']");
     private static final By BUTTON_DELETE_ACCOUNT = By.xpath("//*[@onclick='showRealDeleteAccBtn()']");
     private static final By BUTTON_CONFIRM_DELETE_ACCOUNT = By.id("delete-account-btn");
-
     // - Text verify
     private static final By TEXT_VERIFY_EDIT_ACCOUNT = By.id("edit-alert");
 
@@ -27,5 +25,23 @@ public class ProfilePage extends Page{
     }
 
 
+    // Perform edit profile
+    public void performEditAccount(String name, String bio, String phoneNumber) {
+        findElementOnPage(INPUT_NAME).sendKeys(name);
+        findElementOnPage(INPUT_BIO).sendKeys(bio);
+        findElementOnPage(INPUT_PHONE_NUMBER).sendKeys(phoneNumber);
+        findElementOnPage(BUTTON_SAVE_PROFILE).click();
+    }
+
+    // Verify profile edit
+    public boolean verifyProfileEdit() {
+        return findElementOnPage(TEXT_VERIFY_EDIT_ACCOUNT).getText().equals("Profile Edited!");
+    }
+
+    // Perform delete account
+    public void performDeleteAccount() {
+        findElementOnPage(BUTTON_DELETE_ACCOUNT).click();
+        findElementOnPage(BUTTON_CONFIRM_DELETE_ACCOUNT).click();
+    }
 
 }
