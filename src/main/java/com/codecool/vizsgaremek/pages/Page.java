@@ -4,7 +4,12 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 
 abstract class Page {
@@ -34,6 +39,8 @@ abstract class Page {
     public final WebElement findElementOnPage(By locator) {
         return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
     }
+
+
 
 
 }
