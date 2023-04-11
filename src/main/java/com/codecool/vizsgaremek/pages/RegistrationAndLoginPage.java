@@ -29,7 +29,7 @@ public class RegistrationAndLoginPage extends Page{
 
 
 
-
+    // Constructor
     public RegistrationAndLoginPage(WebDriver driver) {
         super(Pages.REGISTRATION_AND_LOGIN_PAGE.getUrl(), driver);
     }
@@ -41,27 +41,26 @@ public class RegistrationAndLoginPage extends Page{
     }
 
 
-
     // Verify Term and Conditions Window isDisplayed
     public boolean isTnCPopupDisplayed() {
         return findElementOnPage(TNC_POPUP).isDisplayed();
     }
 
 
-
-
     // Perform Registration
-    public void performRegistration(String username, String password) {
+    public void performRegistration(String username, String password, String email, String description) {
         findElementOnPage(FORM_REGISTER).click();
         findElementOnPage(INPUT_REGISTER_USERNAME).sendKeys(username);
         findElementOnPage(INPUT_REGISTER_PASSWORD).sendKeys(password);
+        findElementOnPage(INPUT_REGISTER_EMAIL).sendKeys(email);
+        findElementOnPage(INPUT_REGISTER_DESCRIPTION).sendKeys(description);
         findElementOnPage(BUTTON_REGISTER).click();
     }
 
 
     // Verify registration
     public boolean verifyRegistration() {
-        return findElementOnPage(TEXT_VERIFY_REGISTER).isDisplayed();
+        return findElementOnPage(TEXT_VERIFY_REGISTER).getText().equals("User registered!");
     }
 
 
@@ -75,7 +74,13 @@ public class RegistrationAndLoginPage extends Page{
 
     // Verify failed login
     public boolean verifyFailedLogin() {
-        return findElementOnPage(TEXT_VERIFY_FAILED_LOGIN).isDisplayed();
+        return findElementOnPage(TEXT_VERIFY_FAILED_LOGIN).getText().equals("Username or Password\n" + "is not correct!");
+    }
+
+
+    // Verify successful logout
+    public boolean verifySuccessfulLogOut() {
+        return findElementOnPage(BUTTON_LOGIN).isDisplayed();
     }
 
 

@@ -22,6 +22,7 @@ public class TermsAndConditionsTest extends TestEnvironment {
     }
 
 
+
     @Test
     @Description("Accept Terms and Conditions")
     @Story("Popup window of Terms and Conditions")
@@ -32,9 +33,6 @@ public class TermsAndConditionsTest extends TestEnvironment {
         makeScreenshot("Terms and Conditions pop up window disappeared after accept is");
         Assertions.assertFalse(registrationAndLoginPage.isTnCPopupDisplayed());
     }
-
-
-
 
 
 }

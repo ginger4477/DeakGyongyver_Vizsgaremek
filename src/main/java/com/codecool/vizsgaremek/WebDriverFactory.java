@@ -10,7 +10,12 @@ public class WebDriverFactory {
 
     public static WebDriver getWebDriver() {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("start-maximized", "incognito", "--headless");
+        options.addArguments("--no-sandbox",
+                                "--disable-dev-shm-usage",
+                                "--disable-extensions",
+                                "incognito",
+                                "window-size=1280,800",
+                                "--headless");
         return new ChromeDriver(options);
     }
 

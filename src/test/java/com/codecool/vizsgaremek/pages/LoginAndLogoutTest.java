@@ -3,6 +3,7 @@ import com.codecool.vizsgaremek.enums.Pages;
 import com.codecool.vizsgaremek.testEnvironment.TestEnvironment;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -10,19 +11,23 @@ import org.junit.jupiter.api.Test;
 @Feature("Login and logout")
 public class LoginAndLogoutTest extends TestEnvironment {
 
+    @BeforeEach
+    void acceptTermsAndConditions() {
+        registrationAndLoginPage.acceptTermsNConditions();
+    }
+
+
     @Test
     @Description("Perform Login with already existed user")
     @Story("Already registered user perform successful login")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Existed user login")
     void performLoginTest() {
-        registrationAndLoginPage.acceptTermsNConditions();
+        registrationAndLoginPage.performLogin(REGISTERED_USERNAME, REGISTERED_PASSWORD);
 
-        String username = "lovasia";
-        String password = "kispal123";
-        registrationAndLoginPage.performLogin(username, password);
         makeScreenshot("Successful login");
         Assertions.assertEquals(Pages.LANDING_PAGE.getUrl(), driver.getCurrentUrl());
+        Assertions.assertTrue(landingPage.verifyLogin());
     }
 
 
@@ -32,11 +37,9 @@ public class LoginAndLogoutTest extends TestEnvironment {
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Login without password")
     void performLoginWithoutGivenPassword() {
-        registrationAndLoginPage.acceptTermsNConditions();
+        String emptyPasswordInput = "";
+        registrationAndLoginPage.performLogin(REGISTERED_USERNAME, emptyPasswordInput);
 
-        String username = "lovasia";
-        String password = "";
-        registrationAndLoginPage.performLogin(username, password);
         makeScreenshot("Login declined: Username or Password is not correct!");
         Assertions.assertTrue(registrationAndLoginPage.verifyFailedLogin());
     }
@@ -48,11 +51,9 @@ public class LoginAndLogoutTest extends TestEnvironment {
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Login with misspelled username")
     void performLoginWithMisspelledUsername() {
-        registrationAndLoginPage.acceptTermsNConditions();
+        String misspelledUsername = "lovasiaa";
+        registrationAndLoginPage.performLogin(misspelledUsername, REGISTERED_PASSWORD);
 
-        String username = "lovasiaa";
-        String password = "kispal123";
-        registrationAndLoginPage.performLogin(username, password);
         makeScreenshot("Login declined: Username or Password is not correct!");
         Assertions.assertTrue(registrationAndLoginPage.verifyFailedLogin());
     }
@@ -65,11 +66,9 @@ public class LoginAndLogoutTest extends TestEnvironment {
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Login with wrong password")
     void performLoginWithWrongPassword() {
-        registrationAndLoginPage.acceptTermsNConditions();
+        String wrongPassword = "Kispal1234";
+        registrationAndLoginPage.performLogin(REGISTERED_USERNAME, wrongPassword);
 
-        String username = "lovasiaa";
-        String password = "Kispal1234";
-        registrationAndLoginPage.performLogin(username, password);
         makeScreenshot("Login declined: Username or Password is not correct!");
         Assertions.assertTrue(registrationAndLoginPage.verifyFailedLogin());
     }
@@ -82,16 +81,14 @@ public class LoginAndLogoutTest extends TestEnvironment {
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("Perform logout")
     void performLogout() {
-        registrationAndLoginPage.acceptTermsNConditions();
-
-        String username = "lovasia";
-        String password = "kispal123";
-        registrationAndLoginPage.performLogin(username, password);
+        registrationAndLoginPage.performLogin(REGISTERED_USERNAME, REGISTERED_PASSWORD);
         Assertions.assertEquals(Pages.LANDING_PAGE.getUrl(), driver.getCurrentUrl());
+        Assertions.assertTrue(landingPage.verifyLogin());
 
         landingPage.performLogout();
         makeScreenshot("Successful logout");
         Assertions.assertEquals(Pages.REGISTRATION_AND_LOGIN_PAGE.getUrl(), driver.getCurrentUrl());
+        Assertions.assertTrue(registrationAndLoginPage.verifySuccessfulLogOut());
     }
 
 }

@@ -10,7 +10,10 @@ import org.junit.jupiter.api.*;
 @Feature("Registration")
 class RegistrationTest extends TestEnvironment {
 
-
+    @BeforeEach
+    void acceptTermsAndConditions() {
+        registrationAndLoginPage.acceptTermsNConditions();
+    }
 
     @Test
     @Description("Perform Registration for new user")
@@ -18,10 +21,8 @@ class RegistrationTest extends TestEnvironment {
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("New user registration")
     void performRegistrationTest() {
-        registrationAndLoginPage.acceptTermsNConditions();
-        String username = "hópihe";
-        String password = "hahópihe";
-        registrationAndLoginPage.performRegistration(username, password);
+        registrationAndLoginPage.performRegistration(TEST_USERNAME, TEST_PASSWORD, TEST_EMAIL, TEST_DESCRIPTION);
+
         makeScreenshot("User registered!");
         Assertions.assertTrue(registrationAndLoginPage.verifyRegistration());
     }
@@ -34,21 +35,17 @@ class RegistrationTest extends TestEnvironment {
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("New user registration with login")
     void performRegistrationTest2() {
-        registrationAndLoginPage.acceptTermsNConditions();
-        String username = "phil";
-        String password = "philipe44";
-        registrationAndLoginPage.performRegistration(username, password);
+        registrationAndLoginPage.performRegistration(TEST_USERNAME, TEST_PASSWORD, TEST_EMAIL, TEST_DESCRIPTION);
         makeScreenshot("User registered!");
         Assertions.assertTrue(registrationAndLoginPage.verifyRegistration());
 
         registrationAndLoginPage.navigateToFormLogin();
-        registrationAndLoginPage.performLogin(username, password);
+        registrationAndLoginPage.performLogin(TEST_USERNAME, TEST_PASSWORD);
+
         makeScreenshot("Successful login");
         Assertions.assertEquals(Pages.LANDING_PAGE.getUrl(), driver.getCurrentUrl());
+        Assertions.assertTrue(landingPage.verifyLogin());
     }
-
-
-
 
 
 }
