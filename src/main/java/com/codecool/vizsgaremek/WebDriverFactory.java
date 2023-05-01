@@ -14,8 +14,8 @@ public class WebDriverFactory {
                                 "--disable-dev-shm-usage",
                                 "--disable-extensions",
                                 "incognito",
-                                "window-size=1280,800"
-                                ); //"--headless"
+                                "window-size=1280,800",
+                                "--headless"); //"--headless"
         return new ChromeDriver(options);
     }
 
