@@ -39,4 +39,5 @@ public class DeleteDataTest extends TestEnvironment {
         Assertions.assertTrue(registrationAndLoginPage.verifyFailedLogin());
     }
 
+
 }

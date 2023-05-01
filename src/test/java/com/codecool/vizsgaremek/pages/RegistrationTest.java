@@ -54,7 +54,6 @@ class RegistrationTest extends TestEnvironment {
 
 
 
-
     @Test
     @Description("Perform multiple registration from Json file")
     @Story("Repeated and sequential data entries: multiple registration")

@@ -53,4 +53,5 @@ public class GoingOverMultiplePageListTest extends TestEnvironment {
         Assertions.assertArrayEquals(expected, blogPage.goingOverMultiplePageListAndCollectBlogTitles());
     }
 
+
 }

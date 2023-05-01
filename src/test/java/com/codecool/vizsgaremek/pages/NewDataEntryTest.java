@@ -57,7 +57,6 @@ public class NewDataEntryTest extends TestEnvironment {
 
 
 
-
     @Test
     @Description("Send random message throughout the contact form from json file")
     @Story("We are able to send random message throughout the contact form from json")
@@ -87,8 +86,8 @@ public class NewDataEntryTest extends TestEnvironment {
         String expected = "Message sent!";
         String errorMessage = String.format("Message sent by: " + firstName + " " + lastName);
         Assertions.assertEquals(expected, contactPage.successMessage(), errorMessage);
-
     }
+
 
 
 }

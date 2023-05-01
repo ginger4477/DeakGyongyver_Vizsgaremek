@@ -62,7 +62,6 @@ public class RepeatedAndSequentialDataEntriesTest extends TestEnvironment {
 
 
 
-
     @Test
     @Description("Message sending throughout the contact form multiple times")
     @Story("We are able to send message throughout the contact form multiple times")
@@ -102,7 +101,6 @@ public class RepeatedAndSequentialDataEntriesTest extends TestEnvironment {
         }
         softAssert.assertAll();
     }
-
 
 
 }

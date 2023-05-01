@@ -35,6 +35,7 @@ public class DataModificationTest extends TestEnvironment {
     }
 
 
+
     @Test
     @Description("Edit user account")
     @Story("The user is able to edit his account")
@@ -78,6 +79,7 @@ public class DataModificationTest extends TestEnvironment {
         makeScreenshot(screenshotName);
 
         }
+
 
 
 }
