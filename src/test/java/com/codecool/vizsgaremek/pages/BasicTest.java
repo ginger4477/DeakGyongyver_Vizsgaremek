@@ -8,8 +8,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 
-@Feature("Base test")
-public class BaseTest extends TestEnvironment {
+@Feature("Basic test")
+public class BasicTest extends TestEnvironment {
 
 
     @Test
@@ -21,6 +21,8 @@ public class BaseTest extends TestEnvironment {
         makeScreenshot("Landing on correct URL");
         Assertions.assertEquals(Pages.REGISTRATION_AND_LOGIN_PAGE.getUrl(), driver.getCurrentUrl());
     }
+
+
 
 
 }

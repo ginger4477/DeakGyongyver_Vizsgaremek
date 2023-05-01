@@ -7,7 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 
-@Feature("Terms And Conditions")
+@Feature("Handle Terms And Conditions test")
 public class TermsAndConditionsTest extends TestEnvironment {
 
 

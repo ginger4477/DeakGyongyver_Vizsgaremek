@@ -24,7 +24,6 @@ public class ProfilePage extends Page{
         super(Pages.PROFILE_PAGE.getUrl(), driver);
     }
 
-
     // Perform edit profile
     public void performEditAccount(String name, String bio, String phoneNumber) {
         findElementOnPage(INPUT_NAME).sendKeys(name);

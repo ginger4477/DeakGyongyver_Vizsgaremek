@@ -18,6 +18,11 @@ abstract class Page {
     }
 
 
+    protected WebDriver getDriver() {
+        return driver;
+    }
+
+
     // Navigate to URL
     public final void navigateTo() {
         driver.navigate().to(url);
@@ -42,9 +47,10 @@ abstract class Page {
     }
 
 
+
     // Handle going over multiple page list and collect specific data
     public String[] goingOverMultiplePageListAndCollectData(By dataToGet, By buttonNextPage) {
-        List<String> collectedData = new ArrayList<String>();
+        List<String> collectedData = new ArrayList<>();
         while (true) {
             List<WebElement> dataElements = findElementsOnPage(dataToGet);
             for (WebElement dataElement : dataElements) {

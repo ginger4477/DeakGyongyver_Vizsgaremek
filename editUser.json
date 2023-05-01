@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Jennifer",
+    "bio": "Hey, this is me, Jennifer!",
+    "phoneNumber": "123456789"
+  },
+  {
+    "name": "Jenny",
+    "bio": "Hey, it's still me",
+    "phoneNumber": "987654321"
+  },
+  {
+    "name": "Jen",
+    "bio": "Just call me, Jen :)",
+    "phoneNumber": "987654321"
+  }
+]

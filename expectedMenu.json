@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Home",
+    "url": "https://lennertamas.github.io/roxo/landings"
+  },
+  {
+    "name": "About",
+    "url": "https://lennertamas.github.io/roxo/about"
+  },
+  {
+    "name": "Portfolio",
+    "url": "https://lennertamas.github.io/roxo/portfolio"
+  },
+  {
+    "name": "Blog",
+    "url": "https://lennertamas.github.io/roxo/blog"
+  },
+  {
+    "name": "Get in touch",
+    "url": "https://lennertamas.github.io/roxo/contact"
+  },
+  {
+    "name": "Profile",
+    "url": "https://lennertamas.github.io/roxo/profile"
+  },
+  {
+    "name": "Logout",
+    "url": null
+  }
+]

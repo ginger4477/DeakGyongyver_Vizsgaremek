@@ -3,6 +3,11 @@ package com.codecool.vizsgaremek.pages;
 import com.codecool.vizsgaremek.enums.Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class LandingPage extends Page{
 
@@ -21,6 +26,8 @@ public class LandingPage extends Page{
     private static final By BUTTON_PORTFOLIO = By.xpath("//a[text()='Portfolio']");
     // - Blog
     private static final By BUTTON_BLOG = By.xpath("//*[@class='nav-item']//a[text()='Blog']");
+
+    private final By menuItems = By.xpath("//div[@class='collapse navbar-collapse']//li/a");
 
 
     // Constructor
@@ -69,5 +76,22 @@ public class LandingPage extends Page{
     public void navigateToProfilePage() {
         findElementOnPage(BUTTON_PROFILE).click();
     }
+
+
+
+    // get all Menu Item name and link - for menu display test - later validate it with expectedMenu.json
+    public Map<String, List<String>> getAllMenuItems() {
+        Map<String, List<String>> result = new HashMap<>();
+        List<WebElement> menuList = findElementsOnPage(menuItems);
+
+        for (WebElement menuItem : menuList) {
+            List<String> values = new ArrayList<>();
+            String key = menuItem.getText().trim();
+            values.add(menuItem.getAttribute("href"));
+            result.put(key, values);
+        }
+        return result;
+    }
+
 
 }

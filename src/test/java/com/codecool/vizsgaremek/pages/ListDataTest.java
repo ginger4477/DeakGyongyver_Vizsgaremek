@@ -8,13 +8,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-@Feature("List data")
+@Feature("List data tests")
 public class ListDataTest extends TestEnvironment {
 
     @BeforeEach
     void performLoginBeforeTest() {
         registrationAndLoginPage.acceptTermsNConditions();
-        registrationAndLoginPage.performLogin(REGISTERED_USERNAME, REGISTERED_PASSWORD);
+        registrationAndLoginPage.performLogin(BUILT_IN_USERNAME, BUILT_IN_PASSWORD);
         Assertions.assertEquals(Pages.LANDING_PAGE.getUrl(), driver.getCurrentUrl());
     }
 
@@ -30,6 +30,7 @@ public class ListDataTest extends TestEnvironment {
 
         String[] expected = {"PABLO ESCOBAR", "MONTINO RIAU", "ALEX NAASRI", "HONGMAN CHIOA", "SANTIO ANDRESS", "RAMESH PAUL"};
 
+        makeScreenshot("List team members");
         Assertions.assertArrayEquals(expected, aboutPage.listTeamMembers());
     }
 
@@ -48,6 +49,7 @@ public class ListDataTest extends TestEnvironment {
                                 "Employer Branding", "Animation & Motion Graphics", "Packaging & Product Design",
                                 "Retail & Spacial", "Print & Editorial Design", "Concept/Text", "Information Design"};
 
+        makeScreenshot("List expertises");
         Assertions.assertArrayEquals(expected, aboutPage.listExpertises());
     }
 

@@ -1,0 +1,37 @@
+[
+  {
+    "firstName": "Rachel",
+    "lastName": "Green",
+    "email": "reachel_green@testmail.com",
+    "projectType": "Graphics Design",
+    "aboutProject": "This is a test message"
+  },
+  {
+    "firstName": "Chandler",
+    "lastName": "Bing",
+    "email": "chandler.bing@testmail.com",
+    "projectType": "Web Design",
+    "aboutProject": "This is another test message"
+  },
+  {
+    "firstName": "Phoebe",
+    "lastName": "Buffet",
+    "email": "phoebe.buffet@testmail.com",
+    "projectType": "Web Design",
+    "aboutProject": "This is another test message"
+  },
+  {
+    "firstName": "Monica",
+    "lastName": "Geller",
+    "email": "moni.geller@testmail.com",
+    "projectType": "Graphics Design",
+    "aboutProject": "This is another test message"
+  },
+  {
+    "firstName": "Chandler",
+    "lastName": "Bing",
+    "email": "chandler.bing@testmail.com",
+    "projectType": "Web Design",
+    "aboutProject": "This is another test message"
+  }
+]

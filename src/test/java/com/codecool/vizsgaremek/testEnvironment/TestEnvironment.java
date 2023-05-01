@@ -12,10 +12,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
 
-import java.io.BufferedWriter;
-import java.io.ByteArrayInputStream;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 public class TestEnvironment {
 
@@ -28,11 +25,11 @@ public class TestEnvironment {
     protected PortfolioPage portfolioPage;
     protected BlogPage blogPage;
     protected ProfilePage profilePage;
-    protected static final String REGISTERED_USERNAME = "lovasia";
-    protected static final String REGISTERED_PASSWORD = "kispal123";
+    protected static final String BUILT_IN_USERNAME = "lovasia";
+    protected static final String BUILT_IN_PASSWORD = "kispal123";
     protected static final String TEST_USERNAME = "hópihe";
     protected static final String TEST_PASSWORD = "hahópihe";
-    protected static final String TEST_EMAIL = "hópihe@testmail.com";
+    protected static final String TEST_EMAIL = "hopihe@testmail.com";
     protected static final String TEST_DESCRIPTION = "Once upon a time, there was a little 'hópihe'";
 
 

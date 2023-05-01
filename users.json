@@ -1,0 +1,26 @@
+[
+  {
+    "username": "hópihe",
+    "password": "hahópihe",
+    "email": "hópihe@testmail.com",
+    "description": "One upon a time, there was a pihe called hópihe"
+  },
+  {
+    "username": "jenny",
+    "password": "jennys0l0",
+    "email": "jenny78@testmail.com",
+    "description": "I am Jenny from the Block"
+  },
+  {
+    "username": "Bonny",
+    "password": "bonnyBunny",
+    "email": "bonnyAA@testmail.com",
+    "description": "Hello guys, call me Bonny"
+  },
+  {
+    "username": "emily",
+    "password": "ylime",
+    "email": "iamemily@testmail.com",
+    "description": "..."
+  }
+]

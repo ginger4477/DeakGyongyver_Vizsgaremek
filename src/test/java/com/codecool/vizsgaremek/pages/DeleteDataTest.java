@@ -2,11 +2,14 @@ package com.codecool.vizsgaremek.pages;
 
 import com.codecool.vizsgaremek.enums.Pages;
 import com.codecool.vizsgaremek.testEnvironment.TestEnvironment;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class DeleteAccountTest extends TestEnvironment {
+@Feature("Delete data test")
+public class DeleteDataTest extends TestEnvironment {
 
     @BeforeEach
     void performRegistrationAndLogin() {
@@ -19,12 +22,20 @@ public class DeleteAccountTest extends TestEnvironment {
 
 
     @Test
+    @Description("Delete user account")
+    @Story("The user is able to delete his account")
+    @Severity(SeverityLevel.CRITICAL)
+    @DisplayName("Delete user account")
     void performDeleteAccount() {
         landingPage.navigateToProfilePage();
+
         profilePage.performDeleteAccount();
+
         Assertions.assertEquals(Pages.REGISTRATION_AND_LOGIN_PAGE.getUrl(), driver.getCurrentUrl());
 
         registrationAndLoginPage.performLogin(TEST_USERNAME, TEST_PASSWORD);
+
+        makeScreenshot("Failed login after delete the account");
         Assertions.assertTrue(registrationAndLoginPage.verifyFailedLogin());
     }
 

@@ -3,7 +3,11 @@ package com.codecool.vizsgaremek.pages;
 import com.codecool.vizsgaremek.enums.Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
+
 
 public class ContactPage extends Page{
 
@@ -40,6 +44,8 @@ public class ContactPage extends Page{
 
     // Verify success message sent
     public String successMessage() {
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(TEXT_VERIFY_MESSAGE_SENT));
         return findElementOnPage(TEXT_VERIFY_MESSAGE_SENT).getText();
     }
 

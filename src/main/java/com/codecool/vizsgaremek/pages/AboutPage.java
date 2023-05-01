@@ -17,18 +17,15 @@ public class AboutPage extends Page{
         super(Pages.ABOUT_PAGE.getUrl(), driver);
     }
 
-
     // Listing team members
     public String[] listTeamMembers() {
         return listingData(TEAM_MEMBERS);
     }
 
-
     // Listing expertises
     public String[] listExpertises() {
         return listingData(EXPERTISES);
     }
-
 
     // get and verify About Roxo Content
     public String getAboutRoxoContent() {
