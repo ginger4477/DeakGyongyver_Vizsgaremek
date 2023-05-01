@@ -25,13 +25,13 @@
     "lastName": "Geller",
     "email": "moni.geller@testmail.com",
     "projectType": "Graphics Design",
-    "aboutProject": "This is another test message"
+    "aboutProject": "This is another test message..."
   },
   {
     "firstName": "Chandler",
     "lastName": "Bing",
     "email": "chandler.bing@testmail.com",
     "projectType": "Web Design",
-    "aboutProject": "This is another test message"
+    "aboutProject": "This is another test message..."
   }
 ]
