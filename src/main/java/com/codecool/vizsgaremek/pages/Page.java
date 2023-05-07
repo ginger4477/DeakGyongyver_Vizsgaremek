@@ -41,7 +41,6 @@ abstract class Page {
     }
 
 
-
     // Handle going over multiple page list and collect specific data
     public String[] goingOverMultiplePageListAndCollectData(By dataToGet, By buttonNextPage) {
         List<String> collectedData = new ArrayList<>();

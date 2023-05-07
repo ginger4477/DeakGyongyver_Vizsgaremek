@@ -8,6 +8,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.junit.jupiter.api.*;
+import org.openqa.selenium.JavascriptExecutor;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
@@ -33,6 +34,8 @@ public class ListDataTest extends TestEnvironment {
 
         String[] expected = {"PABLO ESCOBAR", "MONTINO RIAU", "ALEX NAASRI", "HONGMAN CHIOA", "SANTIO ANDRESS", "RAMESH PAUL"};
 
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0, 1700)", "");
         makeScreenshot("List team members");
         Assertions.assertArrayEquals(expected, aboutPage.listTeamMembers(), "Team members list is incorrect");
     }
@@ -59,6 +62,8 @@ public class ListDataTest extends TestEnvironment {
             expectedResult.put(key, value);
         }
 
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0, 1700)", "");
         makeScreenshot("Team members' business cards");
 
         Assertions.assertEquals(expectedResult, aboutPage.getMembers(), "The map returned by getMembers() does not match the expected result");
@@ -79,6 +84,8 @@ public class ListDataTest extends TestEnvironment {
                                 "Employer Branding", "Animation & Motion Graphics", "Packaging & Product Design",
                                 "Retail & Spacial", "Print & Editorial Design", "Concept/Text", "Information Design"};
 
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,400)", "");
         makeScreenshot("List expertises");
         Assertions.assertArrayEquals(expected, aboutPage.listExpertises(), "List of expertises is incorrect");
     }
