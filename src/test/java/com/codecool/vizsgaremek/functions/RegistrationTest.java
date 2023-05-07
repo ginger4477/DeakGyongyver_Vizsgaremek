@@ -64,7 +64,7 @@ class RegistrationTest extends TestEnvironment {
         registrationAndLoginPage.performRegistration(TEST_USERNAME, password, TEST_EMAIL, TEST_DESCRIPTION);
 
         makeScreenshot("User registration with empty password filed");
-        Assertions.assertFalse(registrationAndLoginPage.verifyRegistration(), "Registration failed");
+        Assertions.assertFalse(registrationAndLoginPage.verifyRegistration(), "Successful registration");
     }
 
 
@@ -73,7 +73,7 @@ class RegistrationTest extends TestEnvironment {
     @Description("Perform Registration with empty input fields")
     @Story("A user is not able to register an account with empty input fields")
     @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("TC 07 - New user registration without empty input fields")
+    @DisplayName("TC07 - New user registration without empty input fields")
     void registrationWithEmptyInputFields() {
         String userName = "";
         String password = "";
@@ -81,8 +81,8 @@ class RegistrationTest extends TestEnvironment {
         String description = "";
         registrationAndLoginPage.performRegistration(userName, password, email, description);
 
-        makeScreenshot("User registration with empty input fileds");
-        Assertions.assertFalse(registrationAndLoginPage.verifyRegistration(), "Registration failed");
+        makeScreenshot("User registration with empty input fields");
+        Assertions.assertFalse(registrationAndLoginPage.verifyRegistration(), "Successful registration");
     }
 
 

@@ -43,10 +43,10 @@ public class NewDataEntryTest extends TestEnvironment {
 
         driver.switchTo().alert().accept();
 
-        makeScreenshot("verify success sent");
-
-        String expected = "Message sent!";
-        Assertions.assertEquals(expected, contactPage.successMessage(), "Wrong success message on the page");
+        String expectedMessage = "Message sent!";
+        String actualMessage = contactPage.successMessage();
+        makeScreenshot("Verify success sent message on the page");
+        Assertions.assertEquals(expectedMessage, actualMessage, "Wrong success message on the page");
     }
 
 
@@ -72,10 +72,10 @@ public class NewDataEntryTest extends TestEnvironment {
 
         driver.switchTo().alert().accept();
 
-        makeScreenshot("verify success sent");
-
-        String expected = "Message sent!";
-        Assertions.assertEquals(expected, contactPage.successMessage(), "Wrong success message on the page");
+        String expectedMessage = "Message sent!";
+        String actualMessage = contactPage.successMessage();
+        makeScreenshot("Verify success sent message on the page");
+        Assertions.assertEquals(expectedMessage, actualMessage, "Wrong success message on the page");
     }
 
 
