@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+@Epic("Roxo Webpage testing")
 @Feature("Menu display test")
 public class MenuDisplayTest extends TestEnvironment {
 

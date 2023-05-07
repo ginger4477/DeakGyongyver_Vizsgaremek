@@ -10,7 +10,7 @@ import org.junit.jupiter.api.*;
 import java.io.FileReader;
 
 
-@Epic("")
+@Epic("Roxo Webpage testing")
 @Feature("Registration tests")
 class RegistrationTest extends TestEnvironment {
 

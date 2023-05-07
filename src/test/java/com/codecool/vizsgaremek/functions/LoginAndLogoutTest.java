@@ -5,7 +5,7 @@ import com.codecool.vizsgaremek.testEnvironment.TestEnvironment;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 
-
+@Epic("Roxo Webpage testing")
 @Feature("Login and logout tests")
 public class LoginAndLogoutTest extends TestEnvironment {
 

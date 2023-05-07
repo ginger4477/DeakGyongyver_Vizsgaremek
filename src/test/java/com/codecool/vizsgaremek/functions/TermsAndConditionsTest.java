@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-
+@Epic("Roxo Webpage testing")
 @Feature("Handle Terms And Conditions test")
 public class TermsAndConditionsTest extends TestEnvironment {
 

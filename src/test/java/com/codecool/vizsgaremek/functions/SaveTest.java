@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+@Epic("Roxo Webpage testing")
 @Feature("Save data tests")
 public class SaveTest extends TestEnvironment {
 

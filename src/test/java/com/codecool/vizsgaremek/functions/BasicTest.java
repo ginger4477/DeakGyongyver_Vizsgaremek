@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-
+@Epic("Roxo Webpage testing")
 @Feature("Basic test")
 public class BasicTest extends TestEnvironment {
 

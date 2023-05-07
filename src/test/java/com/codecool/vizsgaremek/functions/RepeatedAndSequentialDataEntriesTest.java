@@ -12,7 +12,7 @@ import org.junit.jupiter.api.*;
 import java.io.FileReader;
 import java.io.IOException;
 
-
+@Epic("Roxo Webpage testing")
 @Feature("Repeated And Sequential Data Entries Test")
 public class RepeatedAndSequentialDataEntriesTest extends TestEnvironment {
 

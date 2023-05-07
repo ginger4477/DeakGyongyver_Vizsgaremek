@@ -5,7 +5,7 @@ import com.codecool.vizsgaremek.testEnvironment.TestEnvironment;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 
-
+@Epic("Roxo Webpage testing")
 @Feature("New data entry test with contact form")
 public class NewDataEntryTest extends TestEnvironment {
 

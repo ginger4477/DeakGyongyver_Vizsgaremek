@@ -5,6 +5,7 @@ import com.codecool.vizsgaremek.testEnvironment.TestEnvironment;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 
+@Epic("Roxo Webpage testing")
 @Feature("Data modification test")
 public class DataModificationTest extends TestEnvironment {
 
