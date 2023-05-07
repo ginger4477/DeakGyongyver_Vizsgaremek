@@ -1,4 +1,4 @@
-package com.codecool.vizsgaremek.pages;
+package com.codecool.vizsgaremek.functions;
 
 import com.codecool.vizsgaremek.enums.Pages;
 import com.codecool.vizsgaremek.testEnvironment.TestEnvironment;
@@ -16,10 +16,12 @@ public class BasicTest extends TestEnvironment {
     @Description("Arrive at the correct URL")
     @Story("The user is navigate to the correct URL")
     @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("Arrive correct URL")
+    @DisplayName("TC01 - Arrive correct URL")
     void arriveCorrectUrl() {
+        registrationAndLoginPage.navigateTo();
+
         makeScreenshot("Landing on correct URL");
-        Assertions.assertEquals(Pages.REGISTRATION_AND_LOGIN_PAGE.getUrl(), driver.getCurrentUrl());
+        Assertions.assertEquals(Pages.REGISTRATION_AND_LOGIN_PAGE.getUrl(), driver.getCurrentUrl(), "Landing incorrect URL");
     }
 
 

@@ -31,7 +31,7 @@ public class BlogPage extends Page {
     }
 
 
-    // get and verify Design Inspiration Blog Content
+    // Get and verify Design Inspiration Blog Content
     public String getDesignInspirationContent() {
         return findElementOnPage(CONTENT_BLOG_DESIGN_INSPIRATION).getText();
     }

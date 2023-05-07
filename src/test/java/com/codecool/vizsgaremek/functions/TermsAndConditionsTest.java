@@ -1,4 +1,4 @@
-package com.codecool.vizsgaremek.pages;
+package com.codecool.vizsgaremek.functions;
 
 import com.codecool.vizsgaremek.testEnvironment.TestEnvironment;
 import io.qameta.allure.*;
@@ -15,10 +15,12 @@ public class TermsAndConditionsTest extends TestEnvironment {
     @Description("Terms and Conditions pop up window is displayed")
     @Story("Popup window of Terms and Conditions")
     @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("Terms and Conditions PopUp window is displayed")
+    @DisplayName("TC02 - Terms and Conditions PopUp window is displayed")
     void displayTermsAndConditionsPopUp() {
+        registrationAndLoginPage.navigateTo();
+
         makeScreenshot("Terms andConditions popup window is displayed");
-        Assertions.assertTrue(registrationAndLoginPage.isTnCPopupDisplayed());
+        Assertions.assertTrue(registrationAndLoginPage.isTnCPopupDisplayed(), "Popup window isn't displayed");
     }
 
 
@@ -26,11 +28,13 @@ public class TermsAndConditionsTest extends TestEnvironment {
     @Description("Accept Terms and Conditions")
     @Story("Popup window of Terms and Conditions")
     @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("Accept and Validate Terms and Conditions PopUp window")
+    @DisplayName("TC03 - Accept and Validate Terms and Conditions PopUp window")
     void acceptTermsAndConditions() {
+        registrationAndLoginPage.navigateTo();
+
         registrationAndLoginPage.acceptTermsNConditions();
         makeScreenshot("Terms and Conditions pop up window disappeared after accept is");
-        Assertions.assertFalse(registrationAndLoginPage.isTnCPopupDisplayed());
+        Assertions.assertFalse(registrationAndLoginPage.isTnCPopupDisplayed(), "Accept terms and conditions failed");
     }
 
 

@@ -29,21 +29,15 @@ abstract class Page {
     }
 
 
-    // findElement on Page
+    // FindElement on Page
     public final WebElement findElementOnPage(By locator) {
         return driver.findElement(locator);
     }
 
 
-    // findElements On Page
+    // FindElements On Page
     public final List<WebElement> findElementsOnPage(By locator) {
         return driver.findElements(locator);
-    }
-
-
-    // Handle alert - click on accept alert
-    public void handleAlert() {
-        driver.switchTo().alert().accept();
     }
 
 
@@ -65,16 +59,5 @@ abstract class Page {
         return collectedData.toArray(new String[0]);
     }
 
-
-    // Listing data
-    public String[] listingData(By locator) {
-        List<WebElement> datas = findElementsOnPage(locator);
-        String[] resultArray = new String[datas.size()];
-        int count = 0;
-        for(WebElement data : datas) {
-            resultArray[count++] = data.getText();
-        }
-        return resultArray;
-    }
 
 }

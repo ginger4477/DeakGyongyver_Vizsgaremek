@@ -86,8 +86,4 @@ public class RegistrationAndLoginPage extends Page{
         findElementOnPage(FORM_LOGIN).click();
     }
 
-
-
-
-
 }

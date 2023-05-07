@@ -1,4 +1,4 @@
-package com.codecool.vizsgaremek.pages;
+package com.codecool.vizsgaremek.functions;
 
 import com.codecool.vizsgaremek.enums.Pages;
 import com.codecool.vizsgaremek.testEnvironment.TestEnvironment;
@@ -8,10 +8,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -21,6 +18,7 @@ public class RepeatedAndSequentialDataEntriesTest extends TestEnvironment {
 
     @BeforeEach
     void performRegistrationAndLogin() {
+        registrationAndLoginPage.navigateTo();
         registrationAndLoginPage.acceptTermsNConditions();
         registrationAndLoginPage.performRegistration(TEST_USERNAME, TEST_PASSWORD, TEST_EMAIL, TEST_DESCRIPTION);
         registrationAndLoginPage.navigateToFormLogin();
@@ -29,17 +27,18 @@ public class RepeatedAndSequentialDataEntriesTest extends TestEnvironment {
     }
 
 
+
     @Test
     @Description("Edit user account multiple times")
     @Story("The user is able to edit his account multiple times")
     @Severity(SeverityLevel.NORMAL)
-    @DisplayName("Multiple edit user account")
+    @DisplayName("TC27 - Multiple edit user account")
     void editAccountMultipleTimesTest() throws IOException, ParseException {
         landingPage.navigateToProfilePage();
         Assertions.assertEquals(Pages.PROFILE_PAGE.getUrl(), driver.getCurrentUrl());
 
         JSONParser parser = new JSONParser();
-        Object obj = parser.parse(new FileReader("editUser.json"));
+        Object obj = parser.parse(new FileReader("src/test/resources/editUser.json"));
         JSONArray jsonArray = (JSONArray) obj;
 
         // Going through all the possibility in the editUser.json
@@ -51,7 +50,7 @@ public class RepeatedAndSequentialDataEntriesTest extends TestEnvironment {
 
             // Perform edit profile with all the possibility in the json file
             profilePage.performEditAccount(name, bio, phoneNumber);
-            Assertions.assertTrue(profilePage.verifyProfileEdit());
+            Assertions.assertTrue(profilePage.verifyProfileEdit(), "Edit profile failed");
 
             String screenshotName = "edit_" + name;
             makeScreenshot(screenshotName);
@@ -66,13 +65,13 @@ public class RepeatedAndSequentialDataEntriesTest extends TestEnvironment {
     @Description("Message sending throughout the contact form multiple times")
     @Story("We are able to send message throughout the contact form multiple times")
     @Severity(SeverityLevel.NORMAL)
-    @DisplayName("Message sending test from Json file multiple times")
+    @DisplayName("TC28 - Message sending test from Json file multiple times")
     void sendMessageMultipleTimes() throws IOException, ParseException {
         landingPage.navigateToContactPage();
         Assertions.assertEquals(Pages.CONTACT_PAGE.getUrl(), driver.getCurrentUrl());
 
         JSONParser parser = new JSONParser();
-        Object obj = parser.parse(new FileReader("contactForm.json"));
+        Object obj = parser.parse(new FileReader("src/test/resources/contactForm.json"));
         JSONArray jsonArray = (JSONArray) obj;
 
         SoftAssertions softAssert = new SoftAssertions();
@@ -88,11 +87,16 @@ public class RepeatedAndSequentialDataEntriesTest extends TestEnvironment {
 
             // Perform sendMessage with all the possibility in the json file
             contactPage.sendMessage(firstName, lastName, email, projectType, aboutProject);
-            contactPage.handleAlert();
+
+            String expectedAlertMessage = "Message sent!";
+            String actualAlertMessage = driver.switchTo().alert().getText();
+            Assertions.assertEquals(expectedAlertMessage, actualAlertMessage, "Wrong alert box message");
+
+            driver.switchTo().alert().accept();
 
             String expected = "Message sent!";
             softAssert.assertThat(contactPage.successMessage())
-                    .as("Message sent by: " + firstName + " " + lastName)
+                    .as("Wrong success message on the page, message sent by: " + firstName + " " + lastName)
                     .isEqualTo(expected);
 
             String screenshotName = "Message sent by: " + firstName + " " + lastName;

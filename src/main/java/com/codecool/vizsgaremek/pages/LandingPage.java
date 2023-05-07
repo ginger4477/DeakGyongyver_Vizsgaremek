@@ -12,8 +12,6 @@ import java.util.Map;
 public class LandingPage extends Page{
 
     // LOCATORS
-    // - Menu
-    private static final By BUTTON_MENU = By.xpath("//button[@class='navbar-toggler collapsed']");
     // - Profile
     private static final By BUTTON_PROFILE = By.id("profile-btn");
     // - About
@@ -26,7 +24,7 @@ public class LandingPage extends Page{
     private static final By BUTTON_PORTFOLIO = By.xpath("//a[text()='Portfolio']");
     // - Blog
     private static final By BUTTON_BLOG = By.xpath("//*[@class='nav-item']//a[text()='Blog']");
-
+    // - Menu items
     private final By menuItems = By.xpath("//div[@class='collapse navbar-collapse']//li/a");
 
 
@@ -79,7 +77,7 @@ public class LandingPage extends Page{
 
 
 
-    // get all Menu Item name and link - for menu display test - later validate it with expectedMenu.json
+    // Get all Menu Item name and link - for menu display test - later validate it with expectedMenu.json
     public Map<String, List<String>> getAllMenuItems() {
         Map<String, List<String>> result = new HashMap<>();
         List<WebElement> menuList = findElementsOnPage(menuItems);

@@ -10,15 +10,16 @@ import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-
-
 import java.io.*;
+
 
 public class TestEnvironment {
 
 
     protected WebDriver driver;
+
     protected RegistrationAndLoginPage registrationAndLoginPage;
+
     protected LandingPage landingPage;
     protected AboutPage aboutPage;
     protected ContactPage contactPage;
@@ -42,6 +43,7 @@ public class TestEnvironment {
     @BeforeEach
     void setUp() {
         driver = WebDriverFactory.getWebDriver();
+
         registrationAndLoginPage = new RegistrationAndLoginPage(driver);
         landingPage = new LandingPage(driver);
         aboutPage = new AboutPage(driver);
@@ -49,20 +51,6 @@ public class TestEnvironment {
         portfolioPage = new PortfolioPage(driver);
         blogPage = new BlogPage(driver);
         profilePage = new ProfilePage(driver);
-
-        registrationAndLoginPage.navigateTo();
-    }
-
-
-    @AfterEach
-    void tearDown() {
-        driver.quit();
-    }
-
-
-    // make screenshot
-    protected void makeScreenshot(String title){
-        Allure.addAttachment(title, new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
     }
 
 
@@ -76,6 +64,18 @@ public class TestEnvironment {
         } catch (IOException e) {
             System.err.println("Error writing text to file: " + e.getMessage());
         }
+    }
+
+
+    @AfterEach
+    void tearDown() {
+        driver.quit();
+    }
+
+
+    // make screenshot
+    protected void makeScreenshot(String title){
+        Allure.addAttachment(title, new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
     }
 
 
