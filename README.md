@@ -1,5 +1,10 @@
 # Vizsgaremek
 
+### About the project
+
+This project was created as the final exam for the Junior Automation Test Engineer course at Codecool.
+This project performs full UI testing of https://lennertamas.github.io/roxo/ using Java Selenium. 
+Using the Allure report, you can track the results of all tests.
 
   * Created by: Deák Gyöngyvér Luca
   * Mentored by: Lenner Tamás
@@ -10,8 +15,19 @@
 
   * Tested website: https://lennertamas.github.io/roxo/index.html
   * Project GitHub repo: https://github.com/ginger4477/DeakGyongyver_Vizsgaremek.git
-  * Test cases and bug report: https://docs.google.com/spreadsheets/d/1s0x41tymSMPKw2scj73NxnA-5qXvtHp76875WAUNkhA/edit?usp=sharing
-  * Allure report: https://ginger4477.github.io/DeakGyongyver_Vizsgaremek/
+  * Test cases and bug report, and test report summary: https://docs.google.com/spreadsheets/d/1s0x41tymSMPKw2scj73NxnA-5qXvtHp76875WAUNkhA/edit?usp=sharing
+  * Allure report online: https://ginger4477.github.io/DeakGyongyver_Vizsgaremek/
+
+
+### Tools used:
+
+  * Java
+  * JUnit5
+  * Selenium
+  * ChromeDriver
+  * IntelliJ IDEA
+  * Github CI/CD
+  * Allure Report
 
 
 ### Tested features:
@@ -30,11 +46,12 @@
   * Repeated and sequential data entries (2 test cases, TC27-TC28)
 
 
-### Test mode:
+### Test mode and Usage:
 
   * Development environment: IntelliJ IDEA
-  * Requirements to run tests locally: IntelliJ IDEA, clone the git repository
   * Automated mode: The tests run automatically and the report is generated after each Git push.
+  * Requirements to run tests locally: IntelliJ IDEA, run locally after cloning the git repository.
+  * For generate test report locally, use: ```allure serve .\target\allure-results\ ```
    
 
 
