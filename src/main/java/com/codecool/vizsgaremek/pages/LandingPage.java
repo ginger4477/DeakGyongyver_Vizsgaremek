@@ -77,7 +77,7 @@ public class LandingPage extends Page{
 
 
 
-    // Get all Menu Item name and link - for menu display test - later validate it with expectedMenu.json
+    // Get all Menu Item name and link - for menu display test > later validate it with expectedMenu.json
     public Map<String, List<String>> getAllMenuItems() {
         Map<String, List<String>> result = new HashMap<>();
         List<WebElement> menuList = findElementsOnPage(menuItems);

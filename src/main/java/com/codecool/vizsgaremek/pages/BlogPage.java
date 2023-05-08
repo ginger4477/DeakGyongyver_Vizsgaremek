@@ -25,7 +25,7 @@ public class BlogPage extends Page {
     }
 
 
-    // Click on read-more button
+    // Click on read-more button for open design inspiration blog
     public  void clickOnReadMoreButton() {
         findElementOnPage(READ_MORE_DESIGN_INSPIRATION).click();
     }
@@ -35,7 +35,5 @@ public class BlogPage extends Page {
     public String getDesignInspirationContent() {
         return findElementOnPage(CONTENT_BLOG_DESIGN_INSPIRATION).getText();
     }
-
-
 
 }

@@ -10,7 +10,7 @@ public class RegistrationAndLoginPage extends Page{
     // - Terms and Conditions
     private static final By BUTTON_ACCEPT_CONDITIONS = By.id("terms-and-conditions-button");
     private static final By TNC_POPUP = By.className("popup");
-    // - Registration
+    // - Registration form
     private static final By FORM_REGISTER = By.xpath("//*[@id='login']/*[@id='register-form-button']");
     private static final By INPUT_REGISTER_USERNAME = By.id("register-username");
     private static final By INPUT_REGISTER_PASSWORD = By.id("register-password");
@@ -18,7 +18,7 @@ public class RegistrationAndLoginPage extends Page{
     private static final By INPUT_REGISTER_DESCRIPTION = By.id("register-description");
     private static final By BUTTON_REGISTER = By.xpath("//button[@onclick='registerUser()']");
     private static final By TEXT_VERIFY_REGISTER = By.id("register-alert");
-    // - Login
+    // - Login form
     private static final By FORM_LOGIN = By.xpath("//*[@id='register']/*[@id='login-form-button']");
     private static final By INPUT_LOGIN_USERNAME = By.id("email");
     private static final By INPUT_LOGIN_PASSWORD = By.id("password");
@@ -81,7 +81,7 @@ public class RegistrationAndLoginPage extends Page{
     }
 
 
-    // Navigate to login form
+    // Navigate to login form from registration form
     public void navigateToFormLogin() {
         findElementOnPage(FORM_LOGIN).click();
     }

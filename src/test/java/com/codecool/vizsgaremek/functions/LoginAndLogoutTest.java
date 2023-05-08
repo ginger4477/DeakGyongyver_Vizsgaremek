@@ -9,7 +9,6 @@ import org.junit.jupiter.api.*;
 @Feature("Login and logout tests")
 public class LoginAndLogoutTest extends TestEnvironment {
 
-
     @BeforeEach
     void acceptTermsAndConditions() {
         registrationAndLoginPage.navigateTo();
@@ -21,14 +20,15 @@ public class LoginAndLogoutTest extends TestEnvironment {
     @Description("Perform Login with already existed user")
     @Story("Already registered user perform successful login")
     @Severity(SeverityLevel.CRITICAL)
-    @DisplayName("TC 09 - Existed user login")
+    @DisplayName("TC09 - Existed user login")
     void performLoginWithExistedUser() {
         registrationAndLoginPage.performLogin(BUILT_IN_USERNAME, BUILT_IN_PASSWORD);
 
-        makeScreenshot("Successful login");
+        makeScreenshot("Result of login with existed user account");
         Assertions.assertEquals(Pages.LANDING_PAGE.getUrl(), driver.getCurrentUrl());
-        Assertions.assertTrue(landingPage.verifyLogin(), "Login failed");
+        Assertions.assertTrue(landingPage.verifyLogin(), "Result of login with existed user:");
     }
+
 
 
     @Test
@@ -40,9 +40,10 @@ public class LoginAndLogoutTest extends TestEnvironment {
         String emptyPasswordInput = "";
         registrationAndLoginPage.performLogin(BUILT_IN_USERNAME, emptyPasswordInput);
 
-        makeScreenshot("Login declined: Username or Password is not correct!");
-        Assertions.assertTrue(registrationAndLoginPage.verifyFailedLogin(), "Login failed");
+        makeScreenshot("Result of login without password: login declined");
+        Assertions.assertTrue(registrationAndLoginPage.verifyFailedLogin(), "Result of login without password");
     }
+
 
 
     @Test
@@ -54,8 +55,8 @@ public class LoginAndLogoutTest extends TestEnvironment {
         String misspelledUsername = "lovasiaa";
         registrationAndLoginPage.performLogin(misspelledUsername, BUILT_IN_PASSWORD);
 
-        makeScreenshot("Login declined: Username or Password is not correct!");
-        Assertions.assertTrue(registrationAndLoginPage.verifyFailedLogin(), "Login failed");
+        makeScreenshot("Result of login with misspelled username: login declined");
+        Assertions.assertTrue(registrationAndLoginPage.verifyFailedLogin(), "Result of login with misspelled username");
     }
 
 
@@ -69,8 +70,8 @@ public class LoginAndLogoutTest extends TestEnvironment {
         String wrongPassword = "Kispal1234";
         registrationAndLoginPage.performLogin(BUILT_IN_USERNAME, wrongPassword);
 
-        makeScreenshot("Login declined: Username or Password is not correct!");
-        Assertions.assertTrue(registrationAndLoginPage.verifyFailedLogin(), "Login failed");
+        makeScreenshot("Result of login with wrong password: login declined");
+        Assertions.assertTrue(registrationAndLoginPage.verifyFailedLogin(), "Result of login with wrong password");
     }
 
 
@@ -83,15 +84,14 @@ public class LoginAndLogoutTest extends TestEnvironment {
     void performLogout() {
         registrationAndLoginPage.performLogin(BUILT_IN_USERNAME, BUILT_IN_PASSWORD);
         Assertions.assertEquals(Pages.LANDING_PAGE.getUrl(), driver.getCurrentUrl());
-        Assertions.assertTrue(landingPage.verifyLogin(), "Login failed");
+        Assertions.assertTrue(landingPage.verifyLogin(), "Result of login");
 
         landingPage.performLogout();
-        makeScreenshot("Successful logout");
+        makeScreenshot("Result after successful logout: arrive at the login page");
 
         Assertions.assertEquals(Pages.REGISTRATION_AND_LOGIN_PAGE.getUrl(), driver.getCurrentUrl());
-        Assertions.assertTrue(registrationAndLoginPage.verifySuccessfulLogOut(), "Logout failed");
+        Assertions.assertTrue(registrationAndLoginPage.verifySuccessfulLogOut(), "As the result of successful logout, the login button displayed");
     }
-
 
 
 }

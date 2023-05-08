@@ -27,7 +27,6 @@ public class RepeatedAndSequentialDataEntriesTest extends TestEnvironment {
     }
 
 
-
     @Test
     @Description("Edit user account multiple times")
     @Story("The user is able to edit his account multiple times")
@@ -50,9 +49,9 @@ public class RepeatedAndSequentialDataEntriesTest extends TestEnvironment {
 
             // Perform edit profile with all the possibility in the json file
             profilePage.performEditAccount(name, bio, phoneNumber);
-            Assertions.assertTrue(profilePage.verifyProfileEdit(), "Edit profile failed");
+            Assertions.assertTrue(profilePage.verifyProfileEdit(), "The displayed message on the page after the edit process is matching with the expected one");
 
-            String screenshotName = "edit_" + name;
+            String screenshotName = "Edit user profile with test datas from editUser.json: > " + name + ", " + bio + ", " + phoneNumber;
             makeScreenshot(screenshotName);
 
             driver.navigate().refresh();
@@ -63,7 +62,7 @@ public class RepeatedAndSequentialDataEntriesTest extends TestEnvironment {
 
     @Test
     @Description("Message sending throughout the contact form multiple times")
-    @Story("We are able to send message throughout the contact form multiple times")
+    @Story("The user able to send message throughout the contact form multiple times")
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("TC28 - Message sending test from Json file multiple times")
     void sendMessageMultipleTimes() throws IOException, ParseException {
@@ -88,18 +87,21 @@ public class RepeatedAndSequentialDataEntriesTest extends TestEnvironment {
             // Perform sendMessage with all the possibility in the json file
             contactPage.sendMessage(firstName, lastName, email, projectType, aboutProject);
 
+            makeScreenshot("Screenshot of the message inputs before sending it with test data from contactForm.json: > Sent by: " + firstName + " " + lastName);
+            contactPage.clickOnSendMessageButton();
+
             String expectedAlertMessage = "Message sent!";
             String actualAlertMessage = driver.switchTo().alert().getText();
-            Assertions.assertEquals(expectedAlertMessage, actualAlertMessage, "Wrong alert box message");
+            Assertions.assertEquals(expectedAlertMessage, actualAlertMessage, "The pop up alert box's message does not matching with the actual one which is display");
 
             driver.switchTo().alert().accept();
 
             String expected = "Message sent!";
             softAssert.assertThat(contactPage.successMessage())
-                    .as("Wrong success message on the page, message sent by: " + firstName + " " + lastName)
+                    .as("Wrong success message on the page, message data from contactForm.json, sent by: " + firstName + " " + lastName)
                     .isEqualTo(expected);
 
-            String screenshotName = "Message sent by: " + firstName + " " + lastName;
+            String screenshotName = "Screenshot after send message process was completed with test data from contactForm.json: > Sent by: " + firstName + " " + lastName;
             makeScreenshot(screenshotName);
             driver.navigate().refresh();
         }

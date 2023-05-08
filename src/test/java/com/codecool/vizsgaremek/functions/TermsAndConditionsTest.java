@@ -10,31 +10,31 @@ import org.junit.jupiter.api.Test;
 @Feature("Handle Terms And Conditions test")
 public class TermsAndConditionsTest extends TestEnvironment {
 
-
     @Test
     @Description("Terms and Conditions pop up window is displayed")
-    @Story("Popup window of Terms and Conditions")
+    @Story("Popup window of Terms and Conditions display correctly")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("TC02 - Terms and Conditions PopUp window is displayed")
     void displayTermsAndConditionsPopUp() {
         registrationAndLoginPage.navigateTo();
 
-        makeScreenshot("Terms andConditions popup window is displayed");
-        Assertions.assertTrue(registrationAndLoginPage.isTnCPopupDisplayed(), "Popup window isn't displayed");
+        makeScreenshot("Result of display terms and conditions pop up window after navigate to the page");
+        Assertions.assertTrue(registrationAndLoginPage.isTnCPopupDisplayed(), "Result of display terms and conditions pop up window after navigate to the page:");
     }
+
 
 
     @Test
     @Description("Accept Terms and Conditions")
-    @Story("Popup window of Terms and Conditions")
+    @Story("Popup window of Terms and Conditions disappear after accept is")
     @Severity(SeverityLevel.CRITICAL)
     @DisplayName("TC03 - Accept and Validate Terms and Conditions PopUp window")
     void acceptTermsAndConditions() {
         registrationAndLoginPage.navigateTo();
 
         registrationAndLoginPage.acceptTermsNConditions();
-        makeScreenshot("Terms and Conditions pop up window disappeared after accept is");
-        Assertions.assertFalse(registrationAndLoginPage.isTnCPopupDisplayed(), "Accept terms and conditions failed");
+        makeScreenshot("Terms and conditions pop up window disappears after accept it");
+        Assertions.assertFalse(registrationAndLoginPage.isTnCPopupDisplayed(), "Terms and conditions pop up window display status after accept it:");
     }
 
 

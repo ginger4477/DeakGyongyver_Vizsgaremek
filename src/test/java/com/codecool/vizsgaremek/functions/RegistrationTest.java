@@ -20,6 +20,7 @@ class RegistrationTest extends TestEnvironment {
         registrationAndLoginPage.acceptTermsNConditions();
     }
 
+
     @Test
     @Description("Perform Registration for new user")
     @Story("A new user accept terms and conditions and complete a successful registration")
@@ -28,8 +29,8 @@ class RegistrationTest extends TestEnvironment {
     void performRegistrationTest() {
         registrationAndLoginPage.performRegistration(TEST_USERNAME, TEST_PASSWORD, TEST_EMAIL, TEST_DESCRIPTION);
 
-        makeScreenshot("User registered!");
-        Assertions.assertTrue(registrationAndLoginPage.verifyRegistration(), "Registration failed");
+        makeScreenshot("Result of new user registration: User registered!");
+        Assertions.assertTrue(registrationAndLoginPage.verifyRegistration(), "Result of registration for new user:");
     }
 
 
@@ -41,15 +42,15 @@ class RegistrationTest extends TestEnvironment {
     @DisplayName("TC05 - New user registration with login")
     void performRegistrationTest2() {
         registrationAndLoginPage.performRegistration(TEST_USERNAME, TEST_PASSWORD, TEST_EMAIL, TEST_DESCRIPTION);
-        makeScreenshot("User registered!");
-        Assertions.assertTrue(registrationAndLoginPage.verifyRegistration(), "Registration failed");
+        makeScreenshot("Result of new user registration: User registered!");
+        Assertions.assertTrue(registrationAndLoginPage.verifyRegistration(), "Result of registration");
 
         registrationAndLoginPage.navigateToFormLogin();
         registrationAndLoginPage.performLogin(TEST_USERNAME, TEST_PASSWORD);
 
-        makeScreenshot("Successful login");
+        makeScreenshot("Result of login after a newly created registration:");
         Assertions.assertEquals(Pages.LANDING_PAGE.getUrl(), driver.getCurrentUrl());
-        Assertions.assertTrue(landingPage.verifyLogin(), "Login failed");
+        Assertions.assertTrue(landingPage.verifyLogin(), "Result of login after a newly created registration:");
     }
 
 
@@ -63,8 +64,8 @@ class RegistrationTest extends TestEnvironment {
         String password = "";
         registrationAndLoginPage.performRegistration(TEST_USERNAME, password, TEST_EMAIL, TEST_DESCRIPTION);
 
-        makeScreenshot("User registration with empty password filed");
-        Assertions.assertFalse(registrationAndLoginPage.verifyRegistration(), "Successful registration");
+        makeScreenshot("Result of new user registration with empty password filed");
+        Assertions.assertFalse(registrationAndLoginPage.verifyRegistration(), "Result of registration with empty password input field:");
     }
 
 
@@ -81,8 +82,8 @@ class RegistrationTest extends TestEnvironment {
         String description = "";
         registrationAndLoginPage.performRegistration(userName, password, email, description);
 
-        makeScreenshot("User registration with empty input fields");
-        Assertions.assertFalse(registrationAndLoginPage.verifyRegistration(), "Successful registration");
+        makeScreenshot("Result of new user registration if user let all input fields are empty");
+        Assertions.assertFalse(registrationAndLoginPage.verifyRegistration(), "Result of new user registration if user let all input fields are empty:");
     }
 
 
@@ -106,10 +107,12 @@ class RegistrationTest extends TestEnvironment {
             String description = (String) user.get("description");
 
             // Perform the registration test with all username-password-email-description combinations
-            String screenshotName = "registration_" + username;
             registrationAndLoginPage.performRegistration(username, password, email, description);
-            Assertions.assertTrue(registrationAndLoginPage.verifyRegistration(), "Registration failed");
+            Assertions.assertTrue(registrationAndLoginPage.verifyRegistration(), "Result of multiple registration:");
+
+            String screenshotName = "Result of multiple new registration from users.json file for user: " + username;
             makeScreenshot(screenshotName);
+
             driver.navigate().refresh();
         }
     }

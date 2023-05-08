@@ -31,13 +31,17 @@ public class ContactPage extends Page{
     }
 
 
-    // Perform fill the contact form and send message
+    // Sending message process: > Step1: Perform fill the contact form
     public void sendMessage(String firstName, String lastName, String email, String projectType, String aboutProject) {
         findElementOnPage(INPUT_FIRST_NAME).sendKeys(firstName);
         findElementOnPage(INPUT_LAST_NAME).sendKeys(lastName);
         findElementOnPage(INPUT_EMAIL).sendKeys(email);
         new Select(findElementOnPage(SELECT_PROJECT_TYPE)).selectByVisibleText(projectType);
         findElementOnPage(INPUT_ABOUT_PROJECT).sendKeys(aboutProject);
+    }
+
+    // Sending message process: > Step2: Click on send button for finish sending message process
+    public void clickOnSendMessageButton() {
         findElementOnPage(BUTTON_SEND_MESSAGE).click();
     }
 
@@ -48,6 +52,5 @@ public class ContactPage extends Page{
         wait.until(ExpectedConditions.visibilityOfElementLocated(TEXT_VERIFY_MESSAGE_SENT));
         return findElementOnPage(TEXT_VERIFY_MESSAGE_SENT).getText();
     }
-
 
 }

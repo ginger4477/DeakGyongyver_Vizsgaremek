@@ -24,6 +24,7 @@ public class ProfilePage extends Page{
         super(Pages.PROFILE_PAGE.getUrl(), driver);
     }
 
+
     // Perform edit profile
     public void performEditAccount(String name, String bio, String phoneNumber) {
         findElementOnPage(INPUT_NAME).sendKeys(name);
@@ -32,14 +33,20 @@ public class ProfilePage extends Page{
         findElementOnPage(BUTTON_SAVE_PROFILE).click();
     }
 
+
     // Verify profile edit
     public boolean verifyProfileEdit() {
         return findElementOnPage(TEXT_VERIFY_EDIT_ACCOUNT).getText().equals("Profile Edited!");
     }
 
-    // Perform delete account
-    public void performDeleteAccount() {
+
+    // Delete user account process: > Step1: Click on delete account button
+    public void clickOnDeleteAccountButton() {
         findElementOnPage(BUTTON_DELETE_ACCOUNT).click();
+    }
+
+    // Delete user account process: > Step2: Confirm user account deletion process
+    public void clickOnConfirmDeleteButton() {
         findElementOnPage(BUTTON_CONFIRM_DELETE_ACCOUNT).click();
     }
 

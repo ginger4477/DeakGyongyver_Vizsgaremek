@@ -4,6 +4,8 @@ import com.codecool.vizsgaremek.enums.Pages;
 import com.codecool.vizsgaremek.testEnvironment.TestEnvironment;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
+import org.openqa.selenium.JavascriptExecutor;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -30,14 +32,17 @@ public class SaveTest extends TestEnvironment {
         landingPage.navigateToAboutPage();
         Assertions.assertEquals(Pages.ABOUT_PAGE.getUrl(), driver.getCurrentUrl());
 
+        makeScreenshot("Screenshot of the Roxo content on the About page");
+
         String newFileName = "Roxo.txt";
         String roxoContent = aboutPage.getAboutRoxoContent();
         writeTextToFile(roxoContent, newFileName);
 
         String expectedResultOfSave = aboutPage.getAboutRoxoContent();
         String actualResultOfSave = Files.readString(Paths.get(newFileName));
-        Assertions.assertEquals(expectedResultOfSave, actualResultOfSave);
+        Assertions.assertEquals(expectedResultOfSave, actualResultOfSave, "The expected result of save does not match with the actual one");
     }
+
 
 
     @Test
@@ -48,16 +53,28 @@ public class SaveTest extends TestEnvironment {
     void saveDesignInspirationBlogToAFile() throws IOException {
         landingPage.navigateToBlogPage();
         Assertions.assertEquals(Pages.BLOG_PAGE.getUrl(), driver.getCurrentUrl());
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0, 205)", "");
+        makeScreenshot("Screenshot of the blog page with the Design inspiration preview");
+
         blogPage.clickOnReadMoreButton();
 
         String newFileName = "designInspiration.txt";
         String designInspirationContent = blogPage.getDesignInspirationContent();
         writeTextToFile(designInspirationContent, newFileName);
 
+        makeScreenshot("Screenshot of the Design inspiration blog #1");
+        js.executeScript("window.scrollBy(0, 650)", "");
+        makeScreenshot("Screenshot of the Design inspiration blog #2");
+        js.executeScript("window.scrollBy(0, 300)", "");
+        makeScreenshot("Screenshot of the Design inspiration blog #3");
+
         String expectedResultOfSave = blogPage.getDesignInspirationContent();
         String actualResultOfSave = Files.readString(Paths.get(newFileName));
-        Assertions.assertEquals(expectedResultOfSave ,actualResultOfSave);
+        Assertions.assertEquals(expectedResultOfSave ,actualResultOfSave, "The expected result of save does not match with the actual one");
     }
+
 
 
     @Test
@@ -68,15 +85,26 @@ public class SaveTest extends TestEnvironment {
     void saveKioTapeBrandPortfolioToAFile() throws IOException {
         landingPage.navigateToPortfolioPage();
         Assertions.assertEquals(Pages.PORTFOLIO_PAGE.getUrl(), driver.getCurrentUrl());
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0, 400)", "");
+        makeScreenshot("Screenshot of the Portfolio page with the Kio Tape's portfolio preview");
+
         portfolioPage.clickOnReadMoreButton();
 
         String newFileName = "kioTapeBrand.txt";
         String kioTapeBrandContent = portfolioPage.getKioTapeBrandContent();
         writeTextToFile(kioTapeBrandContent, newFileName);
 
+        makeScreenshot("Screenshot of the Kio Tape Brand's portfolio #1");
+        js.executeScript("window.scrollBy(0, 650)", "");
+        makeScreenshot("Screenshot of the Kio Tape Brand's portfolio #2");
+        js.executeScript("window.scrollBy(0, 600)", "");
+        makeScreenshot("Screenshot of the Kio Tape Brand's portfolio #3");
+
         String expectedResultOfSave = portfolioPage.getKioTapeBrandContent();
         String actualResultOfSave = Files.readString(Paths.get(newFileName));
-        Assertions.assertEquals(expectedResultOfSave, actualResultOfSave);
+        Assertions.assertEquals(expectedResultOfSave, actualResultOfSave, "The expected result of save does not match with the actual one");
     }
 
 

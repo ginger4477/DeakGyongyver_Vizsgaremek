@@ -12,7 +12,6 @@ public class PortfolioPage extends Page{
     private static final By BUTTON_NEXT_PAGE_ACTIVE = By.xpath("//*[@aria-label='Next']");
     private static final By READ_MORE_KIO_TAPE_BRAND = By.xpath("//*[@id=\"project\"]/div/div/div[1]/div/div[2]/a");
     private static final By CONTENT_PORTFOLIO_KIO_TAPE_BRAND = By.xpath("//*[@class='site-project-single']");
-    private static final By PHOTOS_KIO_TAPE_BRAND = By.cssSelector(".site-project-single-image img");
 
 
     // Constructor
@@ -27,7 +26,7 @@ public class PortfolioPage extends Page{
     }
 
 
-    // Click on read-more button
+    // Click on read-more button for Kio Tape Brand portfolio
     public  void clickOnReadMoreButton() {
         findElementOnPage(READ_MORE_KIO_TAPE_BRAND).click();
     }

@@ -20,6 +20,7 @@ public class DataModificationTest extends TestEnvironment {
     }
 
 
+
     @Test
     @Description("Edit user account")
     @Story("The user is able to edit his account")
@@ -33,10 +34,9 @@ public class DataModificationTest extends TestEnvironment {
         String phoneNumber = "123456789";
         profilePage.performEditAccount(name, bio, phoneNumber);
 
-        makeScreenshot("Account edited");
-        Assertions.assertTrue(profilePage.verifyProfileEdit(), "Edit user failed");
+        makeScreenshot("Result of edit user account");
+        Assertions.assertTrue(profilePage.verifyProfileEdit(), "Result of edit user account:");
     }
-
 
 
 }

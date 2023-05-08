@@ -49,7 +49,9 @@ public class MenuDisplayTest extends TestEnvironment {
         }
 
         Map<String, List<String>> actualResult = landingPage.getAllMenuItems();
-        Assertions.assertEquals(expectedResult, actualResult, "Menu display is incorrect");
+        Assertions.assertEquals(expectedResult, actualResult, "Result of display menu: ");
+        makeScreenshot("Display of the menu on the landing page after login");
     }
+
 
 }

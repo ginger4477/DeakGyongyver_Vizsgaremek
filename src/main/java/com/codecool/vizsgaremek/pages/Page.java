@@ -41,7 +41,7 @@ abstract class Page {
     }
 
 
-    // Handle going over multiple page list and collect specific data
+    // Method for handle going over multiple page list and collect specific data
     public String[] goingOverMultiplePageListAndCollectData(By dataToGet, By buttonNextPage) {
         List<String> collectedData = new ArrayList<>();
         while (true) {
@@ -57,6 +57,5 @@ abstract class Page {
         }
         return collectedData.toArray(new String[0]);
     }
-
 
 }

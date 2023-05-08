@@ -4,11 +4,11 @@ import com.codecool.vizsgaremek.enums.Pages;
 import com.codecool.vizsgaremek.testEnvironment.TestEnvironment;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
+import org.openqa.selenium.JavascriptExecutor;
 
 @Epic("Roxo Webpage testing")
 @Feature("Going-over multiple-page list tests")
 public class GoingOverMultiplePageListTest extends TestEnvironment {
-
 
     @BeforeEach
     void performLoginBeforeTest() {
@@ -17,6 +17,7 @@ public class GoingOverMultiplePageListTest extends TestEnvironment {
         registrationAndLoginPage.performLogin(BUILT_IN_USERNAME, BUILT_IN_PASSWORD);
         Assertions.assertEquals(Pages.LANDING_PAGE.getUrl(), driver.getCurrentUrl());
     }
+
 
 
     @Test
@@ -30,8 +31,16 @@ public class GoingOverMultiplePageListTest extends TestEnvironment {
 
         String[] expected = {"KIO-TAPE BRAND", "USE-LESS BRAND", "OSEN CLOCK", "SEAMLESS WATCH", "KIO TAPE"};
 
-        Assertions.assertArrayEquals(expected, portfolioPage.goingOverMultiplePageListAndCollectProjectNames(), "Project names are incorrect");
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0, 1100)", "");
+        makeScreenshot("First page of the multiple list page of projects before the going over multiple list page process");
+
+        Assertions.assertArrayEquals(expected, portfolioPage.goingOverMultiplePageListAndCollectProjectNames(), "Project names are not matching:");
+
+        js.executeScript("window.scrollBy(0, 30)", "");
+        makeScreenshot("Last page of the multiple list page of projects after the going over multiple list page process was completed");
     }
+
 
 
     @Test
@@ -49,7 +58,14 @@ public class GoingOverMultiplePageListTest extends TestEnvironment {
                                 "Pt Chooses Classic Blue for Its Colour of the Year 2020",
                                 "The 10 Biggest Product Stories of 2019"};
 
-        Assertions.assertArrayEquals(expected, blogPage.goingOverMultiplePageListAndCollectBlogTitles(), "Blog titles are incorrect");
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0, 950)", "");
+        makeScreenshot("First page of the multiple list page of blogs before the going over multiple list page process");
+
+        Assertions.assertArrayEquals(expected, blogPage.goingOverMultiplePageListAndCollectBlogTitles(), "Blog titles are not matching");
+
+        js.executeScript("window.scrollBy(0, 15)", "");
+        makeScreenshot("Last page of the multiple list page of blogs before the going over multiple list page process");
     }
 
 

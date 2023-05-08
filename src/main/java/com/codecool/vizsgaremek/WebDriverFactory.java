@@ -15,7 +15,7 @@ public class WebDriverFactory {
                                 "--disable-extensions",
                                 "incognito",
                                 "window-size=1280,800",
-                                "--headless"); //"--headless"
+                                "--headless");
         return new ChromeDriver(options);
     }
 

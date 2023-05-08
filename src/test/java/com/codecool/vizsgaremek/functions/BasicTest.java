@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Test;
 @Feature("Basic test")
 public class BasicTest extends TestEnvironment {
 
-
     @Test
     @Description("Arrive at the correct URL")
     @Story("The user is navigate to the correct URL")
@@ -20,9 +19,8 @@ public class BasicTest extends TestEnvironment {
     void arriveCorrectUrl() {
         registrationAndLoginPage.navigateTo();
 
-        makeScreenshot("Landing on correct URL");
-        Assertions.assertEquals(Pages.REGISTRATION_AND_LOGIN_PAGE.getUrl(), driver.getCurrentUrl(), "Landing incorrect URL");
+        makeScreenshot("Landing on correct URL for start using Roxo webpage");
+        Assertions.assertEquals(Pages.REGISTRATION_AND_LOGIN_PAGE.getUrl(), driver.getCurrentUrl(), "Landing url for Roxo webpage:");
     }
-
 
 }

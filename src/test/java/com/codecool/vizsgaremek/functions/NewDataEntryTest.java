@@ -9,7 +9,6 @@ import org.junit.jupiter.api.*;
 @Feature("New data entry test with contact form")
 public class NewDataEntryTest extends TestEnvironment {
 
-
     @BeforeEach
     void performRegistrationAndLogin() {
         registrationAndLoginPage.navigateTo();
@@ -25,7 +24,7 @@ public class NewDataEntryTest extends TestEnvironment {
     @Description("Message sending throughout the contact form")
     @Story("The user is able to send message throughout the contact form")
     @Severity(SeverityLevel.NORMAL)
-    @DisplayName("TC17 - Message sending test")
+    @DisplayName("TC17 - Message sending test with valid inputs")
     void sendMessage() {
         landingPage.navigateToContactPage();
         Assertions.assertEquals(Pages.CONTACT_PAGE.getUrl(), driver.getCurrentUrl());
@@ -33,21 +32,25 @@ public class NewDataEntryTest extends TestEnvironment {
         String firstName = "Jennifer";
         String lastName = "Green";
         String email = "jenny_green@testmail.com";
-        String projectType1 = "Graphics Design";
+        String projectType = "Graphics Design";
         String aboutProject = "i'd like to promote my project....";
-        contactPage.sendMessage(firstName, lastName, email, projectType1, aboutProject);
+        contactPage.sendMessage(firstName, lastName, email, projectType, aboutProject);
+
+        makeScreenshot("Screenshot of the message which contains just valid inputs");
+        contactPage.clickOnSendMessageButton();
 
         String expectedAlertMessage = "Message sent!";
         String actualAlertMessage = driver.switchTo().alert().getText();
-        Assertions.assertEquals(expectedAlertMessage, actualAlertMessage, "Wrong alert box message");
+        Assertions.assertEquals(expectedAlertMessage, actualAlertMessage, "The pop up alert box's message does not matching with the actual one which is display");
 
         driver.switchTo().alert().accept();
 
         String expectedMessage = "Message sent!";
         String actualMessage = contactPage.successMessage();
-        makeScreenshot("Verify success sent message on the page");
-        Assertions.assertEquals(expectedMessage, actualMessage, "Wrong success message on the page");
+        makeScreenshot("Contact page after the message sending process was completed");
+        Assertions.assertEquals(expectedMessage, actualMessage, "The expected message does not matching with the actual one which is display on the page after the sending process was completed");
     }
+
 
 
     @Test
@@ -66,18 +69,20 @@ public class NewDataEntryTest extends TestEnvironment {
         String aboutProject = "i'd like to promote my project....";
         contactPage.sendMessage(firstName, lastName, email, projectType, aboutProject);
 
+        makeScreenshot("Screenshot of the message which contains an invalid email input field > before the pop up window display");
+        contactPage.clickOnSendMessageButton();
+
         String expectedAlertMessage = "Oops! There was a problem: Invalid email";
         String actualAlertMessage = driver.switchTo().alert().getText();
-        Assertions.assertEquals(expectedAlertMessage, actualAlertMessage, "Wrong alert box message");
+        Assertions.assertEquals(expectedAlertMessage, actualAlertMessage, "The pop up alert box's message does not matching with the actual one which is display");
 
         driver.switchTo().alert().accept();
 
         String expectedMessage = "Message sent!";
         String actualMessage = contactPage.successMessage();
-        makeScreenshot("Verify success sent message on the page");
-        Assertions.assertEquals(expectedMessage, actualMessage, "Wrong success message on the page");
+        makeScreenshot("Contact page after the message sending process was completed");
+        Assertions.assertEquals(expectedMessage, actualMessage, "The expected message does not matching with the actual one which is display on the page after the sending process was completed");
     }
-
 
 
 }

@@ -26,7 +26,7 @@ public class ListDataTest extends TestEnvironment {
 
     @Test
     @Description("List team members")
-    @Story("Compare two lists of team members")
+    @Story("Validate the list of team members")
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("TC21 - List team members")
     void listTeamMembers() {
@@ -36,9 +36,10 @@ public class ListDataTest extends TestEnvironment {
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0, 1700)", "");
-        makeScreenshot("List team members");
-        Assertions.assertArrayEquals(expected, aboutPage.listTeamMembers(), "Team members list is incorrect");
+        makeScreenshot("Screenshot of list of team members");
+        Assertions.assertArrayEquals(expected, aboutPage.listTeamMembers(), "Team members list is not matching");
     }
+
 
 
     @Test
@@ -64,17 +65,16 @@ public class ListDataTest extends TestEnvironment {
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0, 1700)", "");
-        makeScreenshot("Team members' business cards");
+        makeScreenshot("Screenshot of team members' business cards");
 
-        Assertions.assertEquals(expectedResult, aboutPage.getMembers(), "The map returned by getMembers() does not match the expected result");
+        Assertions.assertEquals(expectedResult, aboutPage.getMembers(), "The team members' business card does not match the expected result");
     }
-
 
 
 
     @Test
     @Description("List expertises")
-    @Story("Compare two lists of expertises")
+    @Story("Validate the list of expertises")
     @Severity(SeverityLevel.NORMAL)
     @DisplayName("TC23 - List expertises")
     void listExpertises() {
@@ -86,8 +86,8 @@ public class ListDataTest extends TestEnvironment {
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,400)", "");
-        makeScreenshot("List expertises");
-        Assertions.assertArrayEquals(expected, aboutPage.listExpertises(), "List of expertises is incorrect");
+        makeScreenshot("Screenshot of list of expertises");
+        Assertions.assertArrayEquals(expected, aboutPage.listExpertises(), "List of expertises are not matching the expected result");
     }
 
 

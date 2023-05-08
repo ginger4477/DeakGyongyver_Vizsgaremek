@@ -20,6 +20,7 @@ public class DeleteDataTest extends TestEnvironment {
     }
 
 
+
     @Test
     @Description("Delete user account")
     @Story("The user is able to delete his account")
@@ -28,13 +29,17 @@ public class DeleteDataTest extends TestEnvironment {
     void performDeleteAccount() {
         landingPage.navigateToProfilePage();
 
-        profilePage.performDeleteAccount();
+        makeScreenshot("Profile page before deletion process starting");
 
-        Assertions.assertEquals(Pages.REGISTRATION_AND_LOGIN_PAGE.getUrl(), driver.getCurrentUrl());
+        profilePage.clickOnDeleteAccountButton();
+        makeScreenshot("Profile page after step1 of deletion process: the confirmation delete button displayed");
+
+        profilePage.clickOnConfirmDeleteButton();
+        makeScreenshot("After step2 of deletion process: Arrive at the login page.");
+        Assertions.assertEquals(Pages.REGISTRATION_AND_LOGIN_PAGE.getUrl(), driver.getCurrentUrl(), "Arrive at the correct url: ");
 
         registrationAndLoginPage.performLogin(TEST_USERNAME, TEST_PASSWORD);
-
-        makeScreenshot("Failed login after delete the account");
+        makeScreenshot("Failed login after the account deletion process was successful");
         Assertions.assertTrue(registrationAndLoginPage.verifyFailedLogin(), "Delete user account failed");
     }
 

@@ -24,7 +24,7 @@ public class AboutPage extends Page{
 
 
 
-    // Listing data
+    // Method for listing datas
     private String[] listingData(By locator) {
         List<WebElement> datas = findElementsOnPage(locator);
         String[] resultArray = new String[datas.size()];
@@ -65,6 +65,5 @@ public class AboutPage extends Page{
     public String getAboutRoxoContent() {
         return findElementOnPage(CONTENT_ABOUT_ROXO).getText();
     }
-
 
 }
