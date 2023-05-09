@@ -1,7 +1,0 @@
-"Epic","Feature","Story","FAILED","BROKEN","PASSED","SKIPPED","UNKNOWN"
-"","Base test","The use is navigate to the correct URL","0","1","0","0","0"
-"","Login and logout","Login","0","4","0","0","0"
-"","Login and logout","Logout","0","1","0","0","0"
-"","Registration","A new user accept terms and conditions and complete a successful registration","0","1","0","0","0"
-"","Terms And Conditions","Popup window of Terms and Conditions","0","2","0","0","0"
-"","Registration","A newly registered user perform successful login","0","1","0","0","0"
