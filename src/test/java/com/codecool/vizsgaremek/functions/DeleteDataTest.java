@@ -20,7 +20,6 @@ public class DeleteDataTest extends TestEnvironment {
     }
 
 
-
     @Test
     @Description("Delete user account")
     @Story("The user is able to delete his account")

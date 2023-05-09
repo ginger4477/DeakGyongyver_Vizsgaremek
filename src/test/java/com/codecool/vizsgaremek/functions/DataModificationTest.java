@@ -9,6 +9,7 @@ import org.junit.jupiter.api.*;
 @Feature("Data modification test")
 public class DataModificationTest extends TestEnvironment {
 
+
     @BeforeEach
     void performRegistrationAndLogin() {
         registrationAndLoginPage.navigateTo();

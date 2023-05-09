@@ -5,7 +5,6 @@ import com.codecool.vizsgaremek.testEnvironment.TestEnvironment;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.JavascriptExecutor;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
