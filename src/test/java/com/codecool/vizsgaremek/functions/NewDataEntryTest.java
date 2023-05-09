@@ -41,14 +41,14 @@ public class NewDataEntryTest extends TestEnvironment {
 
         String expectedAlertMessage = "Message sent!";
         String actualAlertMessage = driver.switchTo().alert().getText();
-        Assertions.assertEquals(expectedAlertMessage, actualAlertMessage, "The pop up alert box's message does not matching with the actual one which is display");
+        Assertions.assertEquals(expectedAlertMessage, actualAlertMessage, "The pop up alert box's message does not match with the actual one which is display");
 
         driver.switchTo().alert().accept();
 
         String expectedMessage = "Message sent!";
         String actualMessage = contactPage.successMessage();
         makeScreenshot("Contact page after the message sending process was completed");
-        Assertions.assertEquals(expectedMessage, actualMessage, "The expected message does not matching with the actual one which is display on the page after the sending process was completed");
+        Assertions.assertEquals(expectedMessage, actualMessage, "The expected message does not match with the actual one which is display on the page after the sending process was completed");
     }
 
 
@@ -74,14 +74,14 @@ public class NewDataEntryTest extends TestEnvironment {
 
         String expectedAlertMessage = "Oops! There was a problem: Invalid email";
         String actualAlertMessage = driver.switchTo().alert().getText();
-        Assertions.assertEquals(expectedAlertMessage, actualAlertMessage, "The pop up alert box's message does not matching with the actual one which is display");
+        Assertions.assertEquals(expectedAlertMessage, actualAlertMessage, "The pop up alert box's message does not match with the actual one which is display");
 
         driver.switchTo().alert().accept();
 
         String expectedMessage = "Message sent!";
         String actualMessage = contactPage.successMessage();
         makeScreenshot("Contact page after the message sending process was completed");
-        Assertions.assertEquals(expectedMessage, actualMessage, "The expected message does not matching with the actual one which is display on the page after the sending process was completed");
+        Assertions.assertEquals(expectedMessage, actualMessage, "The expected message does not match with the actual one which is display on the page after the sending process was completed");
     }
 
 

@@ -29,7 +29,7 @@ class RegistrationTest extends TestEnvironment {
     void performRegistrationTest() {
         registrationAndLoginPage.performRegistration(TEST_USERNAME, TEST_PASSWORD, TEST_EMAIL, TEST_DESCRIPTION);
 
-        makeScreenshot("Result of new user registration");
+        makeScreenshot("Result of new user registration > username: " + TEST_USERNAME);
         Assertions.assertTrue(registrationAndLoginPage.verifyRegistration(), "Result of registration for new user:");
     }
 
@@ -64,7 +64,7 @@ class RegistrationTest extends TestEnvironment {
         String password = "";
         registrationAndLoginPage.performRegistration(TEST_USERNAME, password, TEST_EMAIL, TEST_DESCRIPTION);
 
-        makeScreenshot("Result of new user registration with empty password field");
+        makeScreenshot("Result of new user registration with empty password field > username: " + TEST_USERNAME);
         Assertions.assertFalse(registrationAndLoginPage.verifyRegistration(), "Result of registration with empty password input field:");
     }
 
