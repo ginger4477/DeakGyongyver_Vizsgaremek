@@ -34,7 +34,7 @@ public class SaveTest extends TestEnvironment {
 
         makeScreenshot("Screenshot of the Roxo content on the About page");
 
-        String newFileName = "Roxo.txt";
+        String newFileName = "src/test/resources/savedFiles/savedRoxo.txt";
         String roxoContent = aboutPage.getAboutRoxoContent();
         writeTextToFile(roxoContent, newFileName);
 
@@ -60,7 +60,7 @@ public class SaveTest extends TestEnvironment {
 
         blogPage.clickOnReadMoreButton();
 
-        String newFileName = "designInspiration.txt";
+        String newFileName = "src/test/resources/savedFiles/savedDesignInspiration.txt";
         String designInspirationContent = blogPage.getDesignInspirationContent();
         writeTextToFile(designInspirationContent, newFileName);
 
@@ -92,7 +92,7 @@ public class SaveTest extends TestEnvironment {
 
         portfolioPage.clickOnReadMoreButton();
 
-        String newFileName = "kioTapeBrand.txt";
+        String newFileName = "src/test/resources/savedFiles/savedKioTapeBrand.txt";
         String kioTapeBrandContent = portfolioPage.getKioTapeBrandContent();
         writeTextToFile(kioTapeBrandContent, newFileName);
 
