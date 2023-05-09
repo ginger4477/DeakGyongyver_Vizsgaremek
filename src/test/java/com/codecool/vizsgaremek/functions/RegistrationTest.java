@@ -29,7 +29,7 @@ class RegistrationTest extends TestEnvironment {
     void performRegistrationTest() {
         registrationAndLoginPage.performRegistration(TEST_USERNAME, TEST_PASSWORD, TEST_EMAIL, TEST_DESCRIPTION);
 
-        makeScreenshot("Result of new user registration: User registered!");
+        makeScreenshot("Result of new user registration");
         Assertions.assertTrue(registrationAndLoginPage.verifyRegistration(), "Result of registration for new user:");
     }
 
@@ -42,13 +42,13 @@ class RegistrationTest extends TestEnvironment {
     @DisplayName("TC05 - New user registration with login")
     void performRegistrationTest2() {
         registrationAndLoginPage.performRegistration(TEST_USERNAME, TEST_PASSWORD, TEST_EMAIL, TEST_DESCRIPTION);
-        makeScreenshot("Result of new user registration: User registered!");
+        makeScreenshot("Result of new user registration: > username: " + TEST_USERNAME);
         Assertions.assertTrue(registrationAndLoginPage.verifyRegistration(), "Result of registration");
 
         registrationAndLoginPage.navigateToFormLogin();
         registrationAndLoginPage.performLogin(TEST_USERNAME, TEST_PASSWORD);
 
-        makeScreenshot("Result of login after a newly created registration:");
+        makeScreenshot("Result of login after a newly created registration");
         Assertions.assertEquals(Pages.LANDING_PAGE.getUrl(), driver.getCurrentUrl());
         Assertions.assertTrue(landingPage.verifyLogin(), "Result of login after a newly created registration:");
     }
@@ -64,7 +64,7 @@ class RegistrationTest extends TestEnvironment {
         String password = "";
         registrationAndLoginPage.performRegistration(TEST_USERNAME, password, TEST_EMAIL, TEST_DESCRIPTION);
 
-        makeScreenshot("Result of new user registration with empty password filed");
+        makeScreenshot("Result of new user registration with empty password field");
         Assertions.assertFalse(registrationAndLoginPage.verifyRegistration(), "Result of registration with empty password input field:");
     }
 
@@ -110,8 +110,7 @@ class RegistrationTest extends TestEnvironment {
             registrationAndLoginPage.performRegistration(username, password, email, description);
             Assertions.assertTrue(registrationAndLoginPage.verifyRegistration(), "Result of multiple registration:");
 
-            String screenshotName = "Result of multiple new registration from users.json file for user: " + username;
-            makeScreenshot(screenshotName);
+            makeScreenshot("Result of multiple new registration from users.json file > username: " + username);
 
             driver.navigate().refresh();
         }

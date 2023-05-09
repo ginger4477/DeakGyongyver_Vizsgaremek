@@ -34,7 +34,7 @@ public class DataModificationTest extends TestEnvironment {
         String phoneNumber = "123456789";
         profilePage.performEditAccount(name, bio, phoneNumber);
 
-        makeScreenshot("Result of edit user account");
+        makeScreenshot("Result of edit user account with data > name: " + name + ", bio: " + bio + ", phoneNumber: " + phoneNumber);
         Assertions.assertTrue(profilePage.verifyProfileEdit(), "Result of edit user account:");
     }
 

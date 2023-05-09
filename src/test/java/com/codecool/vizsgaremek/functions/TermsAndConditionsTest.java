@@ -19,7 +19,7 @@ public class TermsAndConditionsTest extends TestEnvironment {
         registrationAndLoginPage.navigateTo();
 
         makeScreenshot("Result of display terms and conditions pop up window after navigate to the page");
-        Assertions.assertTrue(registrationAndLoginPage.isTnCPopupDisplayed(), "Result of display terms and conditions pop up window after navigate to the page:");
+        Assertions.assertTrue(registrationAndLoginPage.isTnCPopupDisplayed(), "Terms and conditions pop up window is displayed: ");
     }
 
 
@@ -33,8 +33,8 @@ public class TermsAndConditionsTest extends TestEnvironment {
         registrationAndLoginPage.navigateTo();
 
         registrationAndLoginPage.acceptTermsNConditions();
-        makeScreenshot("Terms and conditions pop up window disappears after accept it");
-        Assertions.assertFalse(registrationAndLoginPage.isTnCPopupDisplayed(), "Terms and conditions pop up window display status after accept it:");
+        makeScreenshot("Result of accept the terms and conditions");
+        Assertions.assertFalse(registrationAndLoginPage.isTnCPopupDisplayed(), "Terms and conditions pop up window is displayed: ");
     }
 
 

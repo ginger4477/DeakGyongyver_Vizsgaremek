@@ -51,7 +51,7 @@ public class RepeatedAndSequentialDataEntriesTest extends TestEnvironment {
             profilePage.performEditAccount(name, bio, phoneNumber);
             Assertions.assertTrue(profilePage.verifyProfileEdit(), "The displayed message on the page after the edit process is matching with the expected one");
 
-            String screenshotName = "Edit user profile with test datas from editUser.json: > " + name + ", " + bio + ", " + phoneNumber;
+            String screenshotName = "Edit user profile with test datas from editUser.json: > name: " + name + ", bio: " + bio + ", phoneNumber: " + phoneNumber;
             makeScreenshot(screenshotName);
 
             driver.navigate().refresh();
@@ -87,7 +87,7 @@ public class RepeatedAndSequentialDataEntriesTest extends TestEnvironment {
             // Perform sendMessage with all the possibility in the json file
             contactPage.sendMessage(firstName, lastName, email, projectType, aboutProject);
 
-            makeScreenshot("Screenshot of the message inputs before sending it with test data from contactForm.json: > Sent by: " + firstName + " " + lastName);
+            makeScreenshot("Screenshot of the message inputs before sending it with test data from contactForm.json: > Sent by user: " + firstName + " " + lastName);
             contactPage.clickOnSendMessageButton();
 
             String expectedAlertMessage = "Message sent!";
@@ -98,10 +98,10 @@ public class RepeatedAndSequentialDataEntriesTest extends TestEnvironment {
 
             String expected = "Message sent!";
             softAssert.assertThat(contactPage.successMessage())
-                    .as("Wrong success message on the page, message data from contactForm.json, sent by: " + firstName + " " + lastName)
+                    .as("Wrong success message on the page, message data from contactForm.json: > Sent by user: " + firstName + " " + lastName)
                     .isEqualTo(expected);
 
-            String screenshotName = "Screenshot after send message process was completed with test data from contactForm.json: > Sent by: " + firstName + " " + lastName;
+            String screenshotName = "Screenshot after send message process was completed with test data from contactForm.json: > Sent by user: " + firstName + " " + lastName;
             makeScreenshot(screenshotName);
             driver.navigate().refresh();
         }

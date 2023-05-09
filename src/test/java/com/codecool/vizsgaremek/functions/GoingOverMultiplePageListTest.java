@@ -65,7 +65,7 @@ public class GoingOverMultiplePageListTest extends TestEnvironment {
         Assertions.assertArrayEquals(expected, blogPage.goingOverMultiplePageListAndCollectBlogTitles(), "Blog titles are not matching");
 
         js.executeScript("window.scrollBy(0, 15)", "");
-        makeScreenshot("Last page of the multiple list page of blogs before the going over multiple list page process");
+        makeScreenshot("Last page of the multiple list page of blogs after the going over multiple list page process was completed");
     }
 
 
